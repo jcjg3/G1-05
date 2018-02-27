@@ -15,23 +15,20 @@ class ActivitiesTableSeeder extends Seeder
 
             'name' => 'Grupo de ayuda mutua',
             'description' => 'ofrecer una atencion psicologica integral',
-            'votes' => '15',
-            'dateActivity' => '12/02/2018'
+            'votes' => '15'
         ]);
         DB::table('activities')->insert([
 
             'name' => ' Neuropsicología',
             'description' => 'un plan individual para rehabilitacion',
-            'votes' => '20',
-            'dateActivity' => '9/01/2018'
+            'votes' => '20'
         ]);
 
         DB::table('activities')->insert([
 
             'name' => 'Creatividad teurapetica',
             'description' => 'para expresar sus sentimientos y emociones',
-            'votes' => '15',
-            'dateActivity' => '26/01/2018'
+            'votes' => '15'
         ]);
         }
 }
