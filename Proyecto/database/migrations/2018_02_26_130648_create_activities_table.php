@@ -18,7 +18,6 @@ class CreateActivitiesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('votes');
-            $table->date('dateactivity');
             #$table->timestamps();
         });
     }
