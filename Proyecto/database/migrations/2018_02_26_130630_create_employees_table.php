@@ -14,7 +14,7 @@ class CreateEmployeesTable extends Migration
     public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
-           # $table->increments('id');
+           //$table->increments('id');
            $table->string('DNI')->primary();
            $table->string('lastname');
            $table->string('name');
@@ -22,7 +22,7 @@ class CreateEmployeesTable extends Migration
            $table->string('email');
            $table->string('contract');
            $table->string('phone');
-            #$table->timestamps();
+        //$table->timestamps();
         });
     }
 
