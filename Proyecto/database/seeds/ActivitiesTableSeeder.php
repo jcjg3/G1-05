@@ -11,6 +11,7 @@ class ActivitiesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('activities')->delete();
         DB::table('activities')->insert([
 
             'name' => 'Grupo de ayuda mutua',
@@ -19,7 +20,7 @@ class ActivitiesTableSeeder extends Seeder
         ]);
         DB::table('activities')->insert([
 
-            'name' => ' Neuropsicología',
+            'name' => 'Neuropsicologia',
             'description' => 'un plan individual para rehabilitacion',
             'votes' => '20'
         ]);

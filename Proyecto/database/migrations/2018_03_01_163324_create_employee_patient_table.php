@@ -14,17 +14,17 @@ class CreateEmployeePatientTable extends Migration
      public function up()
      {
          Schema::create('employee_patient', function (Blueprint $table) {
-             $table->date('fecha');
-             $table->string('hora');
-             $table->string('patient_id');
-             $table->string('employee_id');
-             //$table->Integer('activity_id');
-             $table->primary([/*'fecha','hora',*/'employee_id', 'patient_id'/*,'activity_id'*/]);
-             $table->foreign('patient_id')->references('DNI')->on('patients');
-             $table->foreign('employee_id')->references('DNI')->on('employees');
-             //$table->foreign('activity_id')->references('id')->on('activities');
+            $table->integer('employee_id');
+            $table->integer('patient_id');
+            $table->date('fecha');
+            $table->string('hora');
+            $table->Integer('activity_id');
+            $table->primary(['patient_id', 'employee_id']);
+            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->foreign('activity_id')->references('id')->on('activities');
  
-             #$table->timestamps();
+            #$table->timestamps();
          });
      }
  
