@@ -13,7 +13,7 @@ class CreateEmployeePatientTable extends Migration
      */
      public function up()
      {
-         Schema::create('employee_patient', function (Blueprint $table) {
+         Schema::create('employees_patients', function (Blueprint $table) {
             $table->integer('employee_id');
             $table->integer('patient_id');
             $table->date('fecha');
@@ -35,6 +35,6 @@ class CreateEmployeePatientTable extends Migration
       */
      public function down()
      {
-         Schema::dropIfExists('employee_patient');
+         Schema::dropIfExists('employees_patients');
      }
 }
