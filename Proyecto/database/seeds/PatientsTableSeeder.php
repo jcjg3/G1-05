@@ -21,7 +21,18 @@ class PatientsTableSeeder extends Seeder
                 ('birthdate') => $faker->date($format = 'd-m-Y', $max = 'now'),
                 ('disability') => 'Traumatismo craneoencefálico'
             ]);
-
         }
+        //11
+        DB::table('patients')->insert([
+            ('name') => 'Ana',
+            ('birthdate') => $faker->date($format = 'd-m-Y', $max = 'now'),
+            ('disability') => 'Traumatismo craneoencefálico'
+        ]);
+        //12
+        DB::table('patients')->insert([
+            ('name') => 'Manuel',
+            ('birthdate') => $faker->date($format = 'd-m-Y', $max = 'now'),
+            ('disability') => 'Traumatismo craneoencefálico'
+        ]);
     }
 }
