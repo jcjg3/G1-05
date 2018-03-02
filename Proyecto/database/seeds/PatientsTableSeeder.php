@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class PatientsTableSeeder extends Seeder
 {
@@ -12,24 +13,15 @@ class PatientsTableSeeder extends Seeder
     public function run()
     {
         DB::table('patients')->delete();
-        DB::table('patients')->insert([
-            ('name') => 'Ana',
-            ('lastname') => 'Soria',
-            ('birthdate') => '25/04/1979',
-            ('disability') => 'Traumatismo craneoencefálico'
-        ]);
-        DB::table('patients')->insert([
-            ('name') => 'Manuel',
-            ('lastname') => 'Serrano',
-            ('birthdate') => '12/09/1990',
-            ('disability') => 'Tumor cerebral'
-        ]);
+        $faker = Faker::create();
 
-        DB::table('patients')->insert([
-            ('name') => 'Pedro',
-            ('lastname') => 'Molinas',
-            ('birthdate') => '25/04/1965',
-            ('disability') => 'Ictus'
-        ]);
+        foreach(range(1,10) as $index){
+            DB::table('patients')->insert([
+                ('name') => $faker->name,
+                ('birthdate') => $faker->date($format = 'd-m-Y', $max = 'now'),
+                ('disability') => 'Traumatismo craneoencefálico'
+            ]);
+
+        }
     }
 }

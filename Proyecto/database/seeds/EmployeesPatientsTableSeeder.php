@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
+
 
 class EmployeesPatientsTableSeeder extends Seeder
 {
@@ -11,27 +13,27 @@ class EmployeesPatientsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        $paciente = DB::table('patients')->where('id','1')->value('id');
-        $paciente1 = DB::table('patients')->where('id','2')->value('id');
-        $medico = DB::table('employees')->where('id','1')->value('id');
-        $activity = DB::table('activities')->where('id','2')->value('id');
-        DB::table('employee_patient')->delete();
+        
+        DB::table('employees_patients')->delete();
 
-        DB::table('employee_patient')->insert([
-            'employee_id' => $medico,
-            'patient_id' => $paciente,
-            'activity_id' => $activity,
-            'fecha' => '27/02/2018',
-            'hora' => '19:30',
-        ]);
+        $employees=App\employee::get();
+        $patients=App\patient::get();
+        
+       
+        $faker = Faker::create();
+    
+        foreach($patients as $patient){
+            $medico = DB::table('employees')->where('id',rand(1,10))->value('id');
+            $activity = DB::table('activities')->where('id',rand(1,3))->value('id');
+            DB::table('employees_patients')->insert([
+                'fecha' => $faker->date($format = 'd-m-Y', $max = '31-12-2022'),
+                'hora' => $faker->time($format = 'H-i-m', $max = 'now'),
+                'patient_id' => $patient->id,
+                'employee_id' => $medico,
+                'activity_id' => $activity 
+                ]);
+            
+        }
 
-        DB::table('employee_patient')->insert([
-            'employee_id' => $medico,
-            'patient_id' => $paciente1,
-            'activity_id' => $activity,
-            'fecha' => '28/02/2018',
-            'hora' => '19:30',
-        ]);
     }
 }
