@@ -44,10 +44,16 @@ Practica DSS
     La aplicación no contará con una web pública.
 **PÚBLICO OBJETIVO**
       
-      >La aplicación solo será gestionada internamente por ello va dirigida a los
+      La aplicación solo será gestionada internamente por ello va dirigida a los
       trabajadores de la ONG ADECEA que trabajan con pacientes como puede ser
       un neuropsicólogo, terapeuta ocupacional, monitor, logopeda, fisioterapeuta,
       trabajador social y auxiliar.
     
  **COMO EJECUTAR EL PROGRAMA**
+  
+       Accedemos a la carpeta llamada Proyecto dentro del repositorio y ejecutamos el script init.sh con el comando ./init.sh o
+       sh init.sh (Solo probado en ubuntu). En caso de dar error, quitar la primera linea del init.sh.
+       Para cargar las migraciones php artisan migrate y php artisan db:seed para cargar los seeders.
+       Adems para pasar las pruebas unitarias se debe utilizar el siguiente comando: "vendor/bin/phpunit".
+       
  
