@@ -16,7 +16,6 @@ class EmployeesTableSeeder extends Seeder
         DB::table('employees')->delete();
         
         DB::table('employees')->insert([
-            'DNI' => '12345678Y',
             'name' => 'Paula',
             'lastname' => 'Rodriguez',
             'birthdate' => '3/01/1984',
@@ -26,7 +25,6 @@ class EmployeesTableSeeder extends Seeder
 
         ]);
         DB::table('employees')->insert([
-            'DNI' => '12342565H',
             'name' => 'Miguel',
             'lastname' => 'Ledesma',
             'birthdate' => '3/01/1984',
