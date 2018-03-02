@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class EmployeesTableSeeder extends Seeder
 {
@@ -14,24 +15,17 @@ class EmployeesTableSeeder extends Seeder
         //
 
         DB::table('employees')->delete();
-        
-        DB::table('employees')->insert([
-            'name' => 'Paula',
-            'lastname' => 'Rodriguez',
-            'birthdate' => '3/01/1984',
-            'email' => 'prod@gmail.com',
-            'contract' => '12345gy',
-            'phone' => '653366678',
+        $faker = Faker::create();
+        foreach(range(1,10) as $index){
+            DB::table('employees')->insert([
+                'name' => $faker->name,
+                'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
+                'email' => $faker->email,
+                'contract' => $faker->numberBetween(90000,10000),
+                'phone' => $faker->phoneNumber,
 
-        ]);
-        DB::table('employees')->insert([
-            'name' => 'Miguel',
-            'lastname' => 'Ledesma',
-            'birthdate' => '3/01/1984',
-            'email' => 'migles@gmail.com',
-            'contract' => '34587gy',
-            'phone' => '652245856',
-
-        ]);
+            ]);
+        }
+      
     }
 }
