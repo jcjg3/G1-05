@@ -26,6 +26,24 @@ class EmployeesTableSeeder extends Seeder
 
             ]);
         }
+        //identificador 11
+        DB::table('employees')->insert([
+            'name' => 'Paula',
+            'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
+            'email' => $faker->email,
+            'contract' => $faker->numberBetween(90000,10000),
+            'phone' => $faker->phoneNumber,
+
+        ]);
+        //identificador 12
+        DB::table('employees')->insert([
+            'name' => 'Miguel',
+            'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
+            'email' => $faker->email,
+            'contract' => $faker->numberBetween(90000,10000),
+            'phone' => $faker->phoneNumber,
+
+        ]);
       
     }
 }
