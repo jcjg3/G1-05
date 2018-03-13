@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('employees', 'EmployeeController');
+Route::resource('admin', 'AdminController');
+
