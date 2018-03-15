@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 use App\Employee;
@@ -39,7 +38,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'input_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    
+        if ($request->hasFile('input_img')) {
+            $image = $request->file('input_img');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+            $this->save();
+    
+            return back()->with('success','Image Upload successfully');
+        }
     }
 
     /**
@@ -50,8 +61,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //$employee = Employee::find($id);
-        //return view($this->path.'.show', compact('employee'));
+        $employee = Employee::find($id);
+        return view($this->path.'.show', compact('employee'));
     }
 
     /**
