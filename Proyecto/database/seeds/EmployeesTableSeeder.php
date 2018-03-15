@@ -23,6 +23,7 @@ class EmployeesTableSeeder extends Seeder
                 'email' => $faker->email,
                 'contract' => $faker->numberBetween(90000,10000),
                 'phone' => $faker->phoneNumber,
+                'photo' => '',
 
             ]);
         }
@@ -33,6 +34,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => $faker->email,
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
+            'photo' => '../images/e1.jpeg',
 
         ]);
         //identificador 12
@@ -42,7 +44,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => $faker->email,
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
-
+            'photo' => '../images/e2.jpeg',
         ]);
       
     }
