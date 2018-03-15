@@ -14,25 +14,35 @@ class EmployeesPatientsTableSeeder extends Seeder
     public function run()
     {
         
-        DB::table('employees_patients')->delete();
+        //DB::table('employee_patient')->delete();
 
-        $employees=App\employee::get();
+        
         $patients=App\patient::get();
         
        
         $faker = Faker::create();
-    
+        $medico = DB::table('employees')->where('id',11)->value('id');
+        $activity = DB::table('activities')->where('id', 2)->value('id');
+        $patient = DB::table('patients')->where('id', 11)->value('id');
+        DB::table('employee_patient')->insert([
+            'fecha' => $faker->date($format = 'd-m-Y', $max = '31-12-2022'),
+            'hora' => $faker->time($format = 'H-i-m', $max = 'now'),
+            'patient_id' => $patient,
+            'employee_id' => $medico,
+            'activity_id' => $activity 
+            ]);
+        
         foreach($patients as $patient){
             $medico = DB::table('employees')->where('id',rand(1,10))->value('id');
             $activity = DB::table('activities')->where('id',rand(1,3))->value('id');
-            DB::table('employees_patients')->insert([
+            DB::table('employee_patient')->insert([
                 'fecha' => $faker->date($format = 'd-m-Y', $max = '31-12-2022'),
                 'hora' => $faker->time($format = 'H-i-m', $max = 'now'),
                 'patient_id' => $patient->id,
                 'employee_id' => $medico,
                 'activity_id' => $activity 
                 ]);
-            
+
         }
 
     }
