@@ -31,10 +31,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{ route('admin.index')}}">
+            <i class="fa fa-navicon"></i>
+            <span class="nav-link-text"> Inicio</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.html">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+          <a class="nav-link" href="{{ route('admin.create')}}">
+            <i class="fa fa-user-plus"></i>
+            <span class="nav-link-text"> Añadir</span>
           </a>
         </li>
         

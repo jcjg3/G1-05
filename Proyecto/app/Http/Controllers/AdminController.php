@@ -28,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view($this->path.'.create');
     }
 
     /**
@@ -50,8 +50,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $employee = Employee::find($id);
-        return view($this->path.'.show', compact('employee'));
+        //$employee = Employee::find($id);
+        //return view($this->path.'.show', compact('employee'));
     }
 
     /**
@@ -62,7 +62,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = Employee::find($id);
+        return view($this->path.'.edit', compact('employee'));
     }
 
     /**
@@ -74,7 +75,8 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::find($id);
+        return view($this->path.'.update', compact('employee'));
     }
 
     /**
@@ -85,6 +87,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::find($id);
+        $name = Employee::find($id)->name;
+        $employee->delete();
+        return  back()->with('info', 'El usuario '.$name.' fue eliminado.');
     }
 }

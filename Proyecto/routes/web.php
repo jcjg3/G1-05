@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::resource('employees', 'EmployeeController');
 Route::resource('admin', 'AdminController');
 
+
