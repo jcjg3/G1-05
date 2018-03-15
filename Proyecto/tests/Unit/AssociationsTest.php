@@ -36,7 +36,7 @@ class TestAssociations extends TestCase
         
         $patient->save();
 
-        $employee->patients()->attach($patient->id,['fecha' => '15/11/2018', 'hora' =>'12:30']);
+        $employee->patients()->attach($patient->id);
         //creamos el empleado 2
         $employe = new Employee();
         $employe->name = 'Eva Maria';
@@ -47,7 +47,7 @@ class TestAssociations extends TestCase
 
         $employe->save();
         //Asociamos el paciente 1 y el empleado 2
-        $employe->patients()->attach($patient->id,['fecha' => '15/11/2018', 'hora' =>'16:30']);
+        $employe->patients()->attach($patient->id);
 
         //creamos el paciente 2
         $patien = new Patient();
@@ -58,20 +58,16 @@ class TestAssociations extends TestCase
         $patien->save();
 
         //Al empleado 2 le añadimos el paciente 2
-        $employe->patients()->attach($patien->id,['fecha' => '15/11/2018', 'hora' =>'15:30']);
+        $employe->patients()->attach($patien->id);
 
         $this->assertEquals($patient->employees[0]->name, 'Maria');
         $this->assertEquals($patient->employees[1]->name, 'Eva Maria');
         $this->assertEquals($patien->employees[0]->name, 'Eva Maria');
         $this->assertEquals($employe->patients[0]->name, 'Juan Carlos');
-        
-        $employee->patients()->detach($patient->id);
-        $employe->patients()->detach($patient->id);
-        $employe->patients()->detach($patien->id);
+
         $employe->delete();
         $employee->delete();
         $patient->delete();
         $patien->delete();
-
     }
 }
