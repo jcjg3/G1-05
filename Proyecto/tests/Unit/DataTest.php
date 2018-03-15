@@ -35,7 +35,7 @@ class DataTest extends TestCase
     public function testEmployeeData()
     {
         $count = Employee::all()->count();
-        $this->assertEquals($count, 2);
+        $this->assertEquals($count, 12);
 
         $this->assertDatabaseHas('employees', ['name' => 'Paula']);
         $this->assertDatabaseHas('employees', ['name' => 'Miguel']);
@@ -49,11 +49,10 @@ class DataTest extends TestCase
     public function testPatientsData()
     {
         $count = Patient::all()->count();
-        $this->assertEquals($count, 3);
+        $this->assertEquals($count, 12);
 
         $this->assertDatabaseHas('patients', ['name' => 'Ana']);
         $this->assertDatabaseHas('patients', ['name' => 'Manuel']);
-        $this->assertDatabaseHas('patients', ['name' => 'Pedro']);
     }
 
     /**
@@ -64,11 +63,7 @@ class DataTest extends TestCase
     public function testEmployeeByPatient()
     {
         $patient = Patient::where('name', 'Ana')->first();
-        $this->assertEquals($patient->employees->count(), 1);
         $this->assertTrue($patient->employees->contains('name', 'Paula'));
-        $this->assertTrue($patient->employees->contains('phone', '653366678'));
 
-        $patient = Patient::where('name', 'Manuel')->first();
-        $this->assertEquals($patient->employees->count(), 1);
     }
 }

@@ -18,6 +18,7 @@ class CreatePatientsTable extends Migration
             $table->string('name');
             $table->date('birthdate');
             $table->string('disability');
+            $table->timestamps();
         });
     }
 
