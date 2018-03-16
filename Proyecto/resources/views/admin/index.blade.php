@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-
+<div class="col-lg-8">
 <div class="card mb-3">
   <div class="card-header"><i class="fa fa-table"></i> Lista de Usuarios</div>
   <div class="card-body">
@@ -18,6 +18,7 @@
               
               <th></th>
               <th></th>
+              <th></th>
           </tr>
           </thead>
 
@@ -28,7 +29,8 @@
               <td>{{ $employee->id }}</td>
               <td>{{ $employee->name }}</td>
               <td>{{ $employee->email }}</td>
-              <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('admin.show', $employee->id)}}" role="button">Ver</a></td>
+              <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('admin.show', $employee->id)}}" role="button">Ver</a></td>
+              <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('admin.edit', $employee->id)}}" role="button">Editar</a></td>
               <td class="text-center">
               <form action="{{ route('admin.destroy', $employee->id)}}" method="POST">
                 {{ csrf_field() }}
@@ -36,7 +38,7 @@
                 <button class="btn btn-success btn-sm">Eliminar</button>
               
               </form>
-             
+             </td>
           </tr>
           @endforeach
           
@@ -47,5 +49,5 @@
     </div>
   </div>
 </div>
-
+</div>
 @endsection

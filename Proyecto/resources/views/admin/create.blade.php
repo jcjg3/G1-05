@@ -8,9 +8,9 @@
       <div class="card-header"><i class="fa fa-file-photo-o"></i>Imagen</div>
       <div class="card-body">
       <div class="text-center"> 
-
+      <img src="" id="profile-img-tag" class="img-thumbnail" />
         </div>
-        <canvas id="myBarChart" width="100" height="50"></canvas>
+        
         <div class="col-md-12 text-center"> 
 </div>
       </div>
@@ -34,5 +34,34 @@
       </div>
       
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script type="text/javascript">
 
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            
+
+            reader.onload = function (e) {
+
+                $('#profile-img-tag').attr('src', e.target.result);
+
+            }
+
+            reader.readAsDataURL(input.files[0]);
+
+        }
+
+    }
+
+    $("#photo").change(function(){
+
+        readURL(this);
+
+    });
+
+</script>
 @endsection
