@@ -8,21 +8,23 @@
     <div class="table-responsive">
     @include('admin.fragment.info')
     
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <table class="table">
         <thead>
           <tr>
+              <th></th>
               <th>ID</th>
               <th>Nombre</th>
               <th>Correo</th>
-              <th></th>
-              <th></th>
               
+              <th></th>
+              <th></th>
           </tr>
           </thead>
 
           <tbody>
           @foreach($employees as $employee)
           <tr>
+              <td style="text-align:center;"> <img src="{{ $employee->photo }}" style="width:55px;height:55px" class=""> </td>
               <td>{{ $employee->id }}</td>
               <td>{{ $employee->name }}</td>
               <td>{{ $employee->email }}</td>
