@@ -8,10 +8,10 @@
     <div class="table-responsive">
     @include('admin.fragment.info')
     
-    <table class="table">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-              <th></th>
+              <th>Imagen</th>
               <th>ID</th>
               <th>Nombre</th>
               <th>Correo</th>
