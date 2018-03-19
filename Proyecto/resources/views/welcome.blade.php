@@ -84,6 +84,7 @@
 
                 <div class="links">
                     <a href="{{route('employees.index')}}">Documentation</a>
+                    <a href="{{route('activity.index')}}">Productos</a>
                    
                 </div>
             </div>
