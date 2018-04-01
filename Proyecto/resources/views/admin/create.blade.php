@@ -1,19 +1,16 @@
 @extends('layout')
 
 @section('content')
-{{ Form::open(['route' => 'admin.store' ])}}
+
 <div class="row">
   <div class="col-lg-4">
     <div class="card mb-3">
       <div class="card-header"><i class="fa fa-file-photo-o"></i>Imagen</div>
       <div class="card-body">
       <div class="text-center"> 
-
-        {{Form::label('No hay imagen', 'input_img',['class' => 'img-fluid'])}}
-        {{Form::file('input_img')}}
-        
+      <img src="" id="profile-img-tag" class="img-thumbnail" />
         </div>
-        <canvas id="myBarChart" width="100" height="50"></canvas>
+        
         <div class="col-md-12 text-center"> 
 </div>
       </div>
@@ -24,13 +21,32 @@
     <div class="card mb-3">
       <div class="card-header"><i class="fa fa-bar-chart"></i> Información</div>
         <div class="card-body">
-        
+        @include('admin.fragment.error')
+
+        {{ Form::open(['route' => 'admin.store', 'method' => 'post', 'files' => true])}}
           @include('admin.fragment.form')
-        
+          
+        {!! Form::close() !!}
+
         </div>
         </div>
       </div>
       
 </div>
-{!! Form::close() !!}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script type="text/javascript">
+    $('#profile-img-tag').attr('src', '../images/nophoto.png');
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#profile-img-tag').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#photo").change(function(){
+        readURL(this);
+    });
+</script>
 @endsection
