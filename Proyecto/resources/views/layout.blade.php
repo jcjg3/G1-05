@@ -185,6 +185,7 @@
       </div>
     </div>
    <!-- Bootstrap core JavaScript-->
+   
    <script src="{{ URL::asset('vendor/jquery/jquery.min.js') }}"></script>
    
   

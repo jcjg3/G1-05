@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 use App\Employee;
+use App\Http\Requests\EmployeeRequest;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 class AdminController extends Controller
 {
     /**
@@ -12,6 +15,8 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
      private $path ='admin';
+     
+     protected $guarded = array();
     public function index()
     {
         $employees = Employee::all();
@@ -36,21 +41,22 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
-        $this->validate($request, [
-            'input_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-    
-        if ($request->hasFile('input_img')) {
-            $image = $request->file('input_img');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/images');
-            $image->move($destinationPath, $name);
-            $this->save();
-    
-            return back()->with('success','Image Upload successfully');
+       $employee = new Employee;
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        $employee->phone = $request->phone;
+        $employee->contract = $request->contract;
+        $employee->birthdate = $request->birthdate;
+        if($request->file('photo')){
+            $path = Storage::disk('public')->put('images',  $request->file('photo'));
+            $employee->fill(['photo'=> asset($path)])->save();
         }
+        $employee->save();
+        return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue guardado.');
+       
+       
     }
 
     /**
@@ -84,10 +90,19 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmployeeRequest $request, $id)
     {
         $employee = Employee::find($id);
-        return view($this->path.'.update', compact('employee'));
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        $employee->phone = $request->phone;
+        $employee->birthdate = $request->birthdate;
+        if($request->file('photo')){
+            $path = Storage::disk('public')->put('images',  $request->file('photo'));
+            $employee->fill(['photo'=> asset($path)])->save();
+        }
+        $employee->save();
+        return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue actualizado.');
     }
 
     /**
