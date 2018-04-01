@@ -1,4 +1,6 @@
 
+@extends('layout')
+
 @section('content')
 <!DOCTYPE html>
 <html lang="es">
@@ -6,12 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ activity->name}}</title>
+    <title>actividad </title>
 </head>
 <body>
-<h2> {{ activity->name}}</h2>
-    <p> {{ activity->description}} </p>
-    
+<h2>{{$activity->name }}</h2>
 </body>
 </html>
-@endsection
+
+@endsection('content')
