@@ -21,7 +21,10 @@ class CreateEmployeesTable extends Migration
            $table->string('contract');
            $table->string('phone');
            $table->string('photo')->nullable();
+           $table->string('clinic_id')->unsigned();
+           $table->foreign('clinic_id')->references('id')->on('clinic');
            $table->timestamps();
+
         });
     }
 

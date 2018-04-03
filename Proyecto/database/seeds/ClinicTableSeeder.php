@@ -15,6 +15,7 @@ class ClinicTableSeeder extends Seeder
         DB::table('clinics')->delete();
         $faker = Faker::create();
         foreach(range(1,10) as $index){
+            
             DB::table('clinics')->insert([
                 'name' => $faker->company,
                 'direccion'=>$faker->address,
