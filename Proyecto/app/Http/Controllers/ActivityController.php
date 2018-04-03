@@ -15,6 +15,16 @@ class ActivityController extends Controller
 
         return view('activity.index',compact('activities'));
     }
+    public function create(){
+        return view('activity.create');
+
+    }
+
+    public function edit($id){
+        $activity = Activity::find($id);
+        return view('activity.edit',compact('activity'));
+
+    }
 
     public function show($id){
         $activity = Activity::find($id);

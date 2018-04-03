@@ -29,7 +29,11 @@
             </form>
          </td>
          <td>
-         <a href="{{route('activity.show',$activity->id)}}"><button>ver </button></a> </td>
+         <a href="{{route('activity.show',$activity->id)}}"><button>ver </button></a> 
+         </td>
+         <td>
+         <a href="{{route('activity.edit',$activity->id)}}"><button>editar </button></a>
+          </td>
         </tr>
         @endforeach
         {!! $activities->render()!!}

@@ -1,4 +1,3 @@
-
 @extends('layout')
 
 @section('content')
@@ -11,11 +10,9 @@
     <title>actividad </title>
 </head>
 <body>
-<h2>Editar actividad </h2>
+<h2>Nueva actividad </h2>
 
-{!! Form::model($activity, ['route' => ['activity.update',$activity->id],'method' =>'PUT']) !!}
-     @include('activity.Fragment.form')
-{!!Form::close()!!}
+
 </body>
 </html>
 
