@@ -14,7 +14,7 @@ class EmployeesPatientsTableSeeder extends Seeder
     public function run()
     {
         
-        //DB::table('employee_patient')->delete();
+        DB::table('employee_patient')->delete();
 
         
         $patients=App\patient::get();

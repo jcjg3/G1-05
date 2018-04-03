@@ -18,5 +18,9 @@ class employee extends Model
     public function activities(){
         return $this->belongsToMany(Activity::class, 'employee_patient')->withPivot('patient_id', 'fecha', 'hora');
     }
+
+    public function clinics(){
+        return $this->belongTo(Clinic::class, 'clinic_employee');
+    }
     
 }
