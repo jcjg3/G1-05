@@ -86,7 +86,7 @@
                     <a href="{{route('employees.index')}}">Documentation</a>
                     <a href="{{route('activity.index')}}">Productos</a>
                     <a href="{{route('patient.index')}}"> Pacientes</a>
-                   
+                    <a href="{{route('clinics.index')}}"> Clinicas</a>
                 </div>
             </div>
         </div>
