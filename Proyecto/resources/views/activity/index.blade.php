@@ -14,6 +14,7 @@
 <h1> Actividades </h1>
 <table class =  "table table-hover table-striped">
     <thead> 
+    <a href="{{route('activity.create')}}"><button>crear</button></a>
     </thead>
     <tbody>
         @foreach($activities as $activity)
