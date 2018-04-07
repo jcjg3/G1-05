@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Employee;
 use App\Patient;
+use App\Activity;
 
 class EmployeeController extends Controller
 {
@@ -22,14 +23,14 @@ class EmployeeController extends Controller
      }
     public function index()
     {
-        //Traemos todos los registros de los usuarios.
-        $email = Auth::user()->email;
-        //$patients = Employee::find(1)->patients()->where('email',Auth::user()->email);
-        $patient = Employee::find(Auth::user()->id);
-        //Enviamos esos registros a la vista.
-        $patient->patients;
-        //return view($this->path.'.index', compact('patients'));
-        return dd($patient);
+        $id = Auth::user()->id;
+        $empl = Employee::get();
+        foreach($empl as $emp){
+            if($emp->user_id == $id){
+                $patients = Employee::find($emp->id)->patients;
+                return view($this->path.'.index', compact('patients'));
+            }
+        }
     }
 
     /**
@@ -39,7 +40,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view($this->path.'.create');
+        $acty = Activity::all();
+        return view($this->path.'.create', compact('acty'));
     }
 
     /**
@@ -60,7 +62,6 @@ class EmployeeController extends Controller
         }
         $patient->save();
         return redirect()->route('employee.index')->with('info', 'El paciente '.$request->name.' fue guardado.');
-       
     }
 
     /**

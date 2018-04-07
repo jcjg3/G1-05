@@ -29,8 +29,19 @@
     {{ Form::label('photo', 'INSERTAR IMAGEN') }}
     {{ Form::file('photo', ['class' => 'form-control'])}}
 </div>
+<div class ="form-group">
+    <label for="">Actividades </lavel>
+    <select name="activity_id" id="inputActivity" class="form-control">
+        @foreach ($acty as $act){
+            <option value={{ $act['id'] }} > {{ $act['name']}} </option>
+        }
+        @endforeach
+    </select>
+</div>
 
 <div class="col-md-12 text-left"> 
     {!! Form::submit('Aceptar', ['class' => 'btn btn-primary']) !!}
 </div>
+
+
 

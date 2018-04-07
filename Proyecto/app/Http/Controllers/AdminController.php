@@ -48,27 +48,30 @@ class AdminController extends Controller
      */
     public function store(EmployeeRequest $request)
     {
-       $employee = new Employee;
-       $user = new User;
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->is_subscriber = '1';
+        $user->role = 'user';
+        $user->save();
+
+        $employee = new Employee;
         $employee->name = $request->name;
         $employee->email = $request->email;
         $employee->phone = $request->phone;
         $employee->contract = $request->contract;
-        $employee->password = $request->password;
+        $employee->password = bcrypt($request->password);
         $employee->birthdate = $request->birthdate;
         if($request->file('photo')){
             $path = Storage::disk('public')->put('images',  $request->file('photo'));
             $employee->fill(['photo'=> asset($path)])->save();
         }
+        $employee->user()->associate($user);
         $employee->save();
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->is_subscriber = '1';
-        $user->role = 'user';
-        $user->save();
+        
+       
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue guardado.');
        
        
@@ -128,8 +131,10 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $employee = Employee::find($id);
+        $user = User::find($id);
         $name = Employee::find($id)->name;
         $employee->delete();
+        $user->delete();
         return  back()->with('info', 'El usuario '.$name.' fue eliminado.');
     }
 }

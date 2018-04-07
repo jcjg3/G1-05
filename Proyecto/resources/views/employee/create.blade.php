@@ -7,12 +7,10 @@
     <div class="card mb-3">
       <div class="card-header"><i class="fa fa-file-photo-o"></i>Imagen</div>
       <div class="card-body">
-      <div class="text-center"> 
-      <img src="" id="profile-img-tag" class="img-thumbnail" />
+        <div class="text-center"> 
+          <img src="" id="profile-img-tag" class="img-thumbnail" />
         </div>
-        
-        <div class="col-md-12 text-center"> 
-</div>
+        <div class="col-md-12 text-center"> </div>
       </div>
     </div>
   </div>  
@@ -20,18 +18,16 @@
   <div class="col-lg-8">
     <div class="card mb-3">
       <div class="card-header"><i class="fa fa-bar-chart"></i> Información</div>
-        <div class="card-body">
-        @include('employee.fragment.error')
+      <div class="card-body">
+      @include('employee.fragment.error')
 
-        {{ Form::open(['route' => 'employee.store', 'method' => 'post', 'files' => true])}}
-          @include('employee.fragment.form')
-          
-        {!! Form::close() !!}
-
-        </div>
-        </div>
+      {{ Form::open(['route' => 'employee.store', 'method' => 'post', 'files' => true])}}
+        @include('employee.fragment.form')
+        
+      {!! Form::close() !!}
       </div>
-      
+    </div>
+  </div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script type="text/javascript">

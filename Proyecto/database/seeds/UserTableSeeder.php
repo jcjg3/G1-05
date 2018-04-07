@@ -11,7 +11,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        DB::table('users')->delete();
         DB::table('users')->insert([
         'name' => 'admin',
         'email' => 'admin@admin.com',
@@ -22,7 +22,14 @@ class UserTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'user',
-            'email' => 'user@user.com',
+            'email' => 'user1@user.com',
+            'password' => bcrypt('user'),
+            'is_subscriber' => '1',
+            'role' => 'user'
+        ]);
+        DB::table('users')->insert([
+            'name' => 'user',
+            'email' => 'user2@user.com',
             'password' => bcrypt('user'),
             'is_subscriber' => '1',
             'role' => 'user'
