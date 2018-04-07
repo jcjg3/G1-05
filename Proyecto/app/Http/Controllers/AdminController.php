@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Employee;
+use App\User;
 use App\Http\Requests\EmployeeRequest;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -16,14 +17,18 @@ class AdminController extends Controller
      */
      private $path ='admin';
      
-     protected $guarded = array();
+    protected $guarded = array();
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     public function index()
     {
         $employees = Employee::all();
         //Enviamos esos registros a la vista.
-        
         return view($this->path.'.index', compact('employees'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -44,16 +49,26 @@ class AdminController extends Controller
     public function store(EmployeeRequest $request)
     {
        $employee = new Employee;
+       $user = new User;
         $employee->name = $request->name;
         $employee->email = $request->email;
         $employee->phone = $request->phone;
         $employee->contract = $request->contract;
+        $employee->password = $request->password;
         $employee->birthdate = $request->birthdate;
         if($request->file('photo')){
             $path = Storage::disk('public')->put('images',  $request->file('photo'));
             $employee->fill(['photo'=> asset($path)])->save();
         }
         $employee->save();
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->is_subscriber = '1';
+        $user->role = 'user';
+        $user->save();
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue guardado.');
        
        
@@ -70,7 +85,6 @@ class AdminController extends Controller
         $employee = Employee::find($id);
         return view($this->path.'.show', compact('employee'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *

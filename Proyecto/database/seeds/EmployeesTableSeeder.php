@@ -16,7 +16,7 @@ class EmployeesTableSeeder extends Seeder
 
         DB::table('employees')->delete();
         $faker = Faker::create();
-        foreach(range(1,10) as $index){
+        foreach(range(1,4) as $index){
             DB::table('employees')->insert([
                 'name' => $faker->name,
                 'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
@@ -24,6 +24,7 @@ class EmployeesTableSeeder extends Seeder
                 'contract' => $faker->numberBetween(90000,10000),
                 'phone' => $faker->phoneNumber,
                 'photo' => '',
+                'password' => bcrypt('user'),
 
             ]);
         }
@@ -35,6 +36,7 @@ class EmployeesTableSeeder extends Seeder
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
             'photo' => '../images/e1.jpeg',
+            'password' => bcrypt('user'),
 
         ]);
         //identificador 12
@@ -45,6 +47,7 @@ class EmployeesTableSeeder extends Seeder
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
             'photo' => '../images/e2.jpeg',
+            'password' => bcrypt('user'),
         ]);
       
     }
