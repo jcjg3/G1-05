@@ -1,39 +1,47 @@
 @extends('layout')
 
 @section('content')
+<div class="col-lg-8">
+<div class="card mb-3">
+  <div class="card-header"><i class="fa fa-table"></i> Lista de Pacientes</div>
+  <div class="card-body">
+    <div class="table-responsive">
+    
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+              
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Discapacidad</th>
+          </tr>
+          </thead>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pacientes</title>
-</head>
-<body>
-<h1> Pacientes </h1>
-<table class =  "table table-hover table-striped">
-    <thead> 
-    </thead>
-    <tbody>
-        @foreach($patients as $patient)
-        <tr>
-            <td>  {{ $patient->id }}  </td>
-            <td> <strong> {{ $patient->name }} </strong> </td>
-            <td> {{ $patient->disability }} </td>
-            <td> 
-            <form action="{{route('patient.destroy',$patient->id)}}" method ="POST">
-                {{ csrf_field()}}
-                <input type="hidden" name= "_method" value="DELETE"> 
-                <button> borrar</button>
-            </form>
-         </td>
-        </tr>
-        @endforeach
-        {!! $patients->render()!!}
-    </tbody>
-</table> 
-</body>
-</html>
-
-@endsection('content')
+          <tbody>
+          @foreach($patients as $patient)
+          <tr>
+              <td>{{ $patient->id }}</td>
+              <td>{{ $patient->name }}</td>
+              <td>{{ $patient->disability }}</td>
+              <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('patient.show', $patient->id)}}" role="button">Ver</a></td>
+              <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('patient.edit', $patient->id)}}" role="button">Editar</a></td>
+              <td class="text-center">
+              <form action="{{ route('patient.destroy', $patient->id)}}" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-success btn-sm">Eliminar</button>
+              
+              </form>
+             </td>
+          </tr>
+          @endforeach
+          
+          </tbody>
+        </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+@endsection)
