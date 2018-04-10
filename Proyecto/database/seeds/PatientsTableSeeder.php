@@ -15,24 +15,36 @@ class PatientsTableSeeder extends Seeder
         DB::table('patients')->delete();
         $faker = Faker::create();
 
-        foreach(range(1,10) as $index){
+        foreach(range(1,20) as $index){
             DB::table('patients')->insert([
                 ('name') => $faker->name,
                 ('birthdate') => $faker->date($format = 'd-m-Y', $max = 'now'),
-                ('disability') => 'Traumatismo craneoencefálico'
+                ('disability') => 'Traumatismo craneoencefálico',
+                ('phone') => $faker->phoneNumber,
+                ('address') => $faker->address,
+                ('photo') => '../images/nophoto.png',
+                ('sexo') => 'female'
             ]);
         }
         //11
         DB::table('patients')->insert([
             ('name') => 'Ana',
             ('birthdate') => $faker->date($format = 'd-m-Y', $max = 'now'),
-            ('disability') => 'Traumatismo craneoencefálico'
+            ('disability') => 'Traumatismo craneoencefálico',
+            ('phone') => $faker->phoneNumber,
+            ('address') => $faker->address,
+            ('photo') => '../images/nophoto.png',
+            ('sexo') => 'female'
         ]);
         //12
         DB::table('patients')->insert([
             ('name') => 'Manuel',
             ('birthdate') => $faker->date($format = 'd-m-Y', $max = 'now'),
-            ('disability') => 'Traumatismo craneoencefálico'
+            ('disability') => 'Traumatismo craneoencefálico',
+            ('phone') => $faker->phoneNumber,
+            ('address') => $faker->address,
+            ('photo') => '../images/nophoto.png',
+            ('sexo') => 'male'
         ]);
     }
 }

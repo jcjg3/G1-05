@@ -13,7 +13,9 @@
               
               <th>ID</th>
               <th>Nombre</th>
-              <th>Discapacidad</th>
+              <th></th>
+              <th></th>
+              <th></th>
           </tr>
           </thead>
 
@@ -22,7 +24,6 @@
           <tr>
               <td>{{ $patient->id }}</td>
               <td>{{ $patient->name }}</td>
-              <td>{{ $patient->disability }}</td>
               <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('patient.show', $patient->id)}}" role="button">Ver</a></td>
               <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('patient.edit', $patient->id)}}" role="button">Editar</a></td>
               <td class="text-center">
