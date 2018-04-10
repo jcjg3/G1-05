@@ -17,7 +17,7 @@ class EmployeesTableSeeder extends Seeder
         DB::table('employees')->delete();
         $faker = Faker::create();
         foreach(range(1,10) as $index){
-            $clinic = DB::table('clinics')->where('id',rand(0,10))->value('id');
+            $clinic = DB::table('clinics')->where('id',rand(1,10))->value('id');
             DB::table('employees')->insert([
                 'name' => $faker->name,
                 'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
@@ -30,7 +30,7 @@ class EmployeesTableSeeder extends Seeder
             ]);
         }
         //identificador 11
-        $clinic = DB::table('clinics')->where('id',rand(0,10))->value('id');
+        $clinic = DB::table('clinics')->where('id',rand(0,9))->value('id');
         DB::table('employees')->insert([
             'name' => 'Paula',
             'clinic_id'=>$clinic,
