@@ -1,4 +1,3 @@
-
 @extends('layout')
 
 @section('content')
@@ -11,8 +10,11 @@
     <title>actividad </title>
 </head>
 <body>
-<h2>{{$activity->name }}</h2>
-<
+<h2> Nueva actividad </h2>
+
+{!! Form::open(['route' => 'activity.store']) !!}
+     @include('activity.Fragment.form')
+{!!Form::close()!!}
 </body>
 </html>
 
