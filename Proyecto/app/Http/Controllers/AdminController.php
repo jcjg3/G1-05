@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Employee;
+use App\User;
 use App\Http\Requests\EmployeeRequest;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -16,7 +17,11 @@ class AdminController extends Controller
      */
      private $path ='admin';
      
-     protected $guarded = array();
+    protected $guarded = array();
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     public function index()
     {
         $employee = new Employee();
@@ -24,6 +29,7 @@ class AdminController extends Controller
         $employees = $employee->list(); 
         return view($this->path.'.index', compact('employees'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -43,7 +49,17 @@ class AdminController extends Controller
      */
     public function store(EmployeeRequest $request)
     {
-        $employee->store($request);
+
+        
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->is_subscriber = '1';
+        $user->role = 'user';
+        $user->save();
+        $employee->store($request, $user);
+        $employee->user()->associate($user);
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue guardado.');
        
        
@@ -61,7 +77,6 @@ class AdminController extends Controller
         $employee = $employe->search($id);
         return view($this->path.'.show', compact('employee'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -101,7 +116,9 @@ class AdminController extends Controller
         $employe = new Employee;
         $employee = $employe->search($id);
         $name = $employee->name;
+        $user = User::find($id);
         $employee->delete();
+        $user->delete();
         return  back()->with('info', 'El usuario '.$name.' fue eliminado.');
     }
 }

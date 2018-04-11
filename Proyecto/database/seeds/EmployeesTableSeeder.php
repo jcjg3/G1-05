@@ -15,9 +15,9 @@ class EmployeesTableSeeder extends Seeder
         //
 
         DB::table('employees')->delete();
-        $faker = Faker::create();
-        foreach(range(1,10) as $index){
-            $clinic = DB::table('clinics')->where('id',rand(1,10))->value('id');
+
+        /*$faker = Faker::create();
+        foreach(range(1,4) as $index){
             DB::table('employees')->insert([
                 'name' => $faker->name,
                 'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
@@ -26,12 +26,13 @@ class EmployeesTableSeeder extends Seeder
                 'contract' => $faker->numberBetween(90000,10000),
                 'phone' => $faker->phoneNumber,
                 'photo' => '',
+                'password' => bcrypt('user'),
 
             ]);
-        }
+        }*/
         //identificador 11
-        $clinic = DB::table('clinics')->where('id',rand(0,9))->value('id');
-        DB::table('employees')->insert([
+
+        /*DB::table('employees')->insert([
             'name' => 'Paula',
             'clinic_id'=>$clinic,
             'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
@@ -39,6 +40,8 @@ class EmployeesTableSeeder extends Seeder
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
             'photo' => '../images/e1.jpeg',
+            'password' => bcrypt('user'),
+            'user_id' =>'2',
 
         ]);
         //identificador 12
@@ -50,7 +53,9 @@ class EmployeesTableSeeder extends Seeder
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
             'photo' => '../images/e2.jpeg',
-        ]);
+            'password' => bcrypt('user'),
+            'user_id' =>'3',
+        ]);*/
       
     }
 }

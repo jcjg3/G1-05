@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Employee;
+use App\Patient;
+use App\Activity;
 
 class EmployeeController extends Controller
 {
@@ -14,17 +17,20 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
      private $path ='employee';
+     public function __construct()
+     {
+         $this->middleware('user');
+     }
     public function index()
-    {
-        //Traemos todos los registros de los usuarios.
-        
-        
-        $employee = new Employee();
-        $employees = $employee->list(); 
-        //Enviamos esos registros a la vista.
-
-        return view($this->path.'.index', compact('employees'));
-        //return view('employee.index');
+    {    
+        $id = Auth::user()->id;
+        $empl = Employee::get();
+        foreach($empl as $emp){
+            if($emp->user_id == $id){
+                $patients = Employee::find($emp->id)->patients;
+                return view($this->path.'.index', compact('patients'));
+            }
+        }
     }
 
     /**
@@ -34,7 +40,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $acty = Activity::all();
+        return view($this->path.'.create', compact('acty'));
     }
 
     /**
@@ -45,7 +52,16 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patient = new Patient;
+        $patient->name = $request->name;
+        $patient->birthdate = $request->birthdate;
+        $patient->disability = $request->disability;
+        if($request->file('photo')){
+            $path = Storage::disk('public')->put('images',  $request->file('photo'));
+            $patient->fill(['photo'=> asset($path)])->save();
+        }
+        $patient->save();
+        return redirect()->route('employee.index')->with('info', 'El paciente '.$request->name.' fue guardado.');
     }
 
     /**
@@ -56,7 +72,8 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $patient = Patient::find($id);
+        return view($this->path.'.show', compact('patient'));
     }
 
     /**
@@ -67,7 +84,8 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $patient = Patient::find($id);
+        return view($this->path.'.edit', compact('patient'));
     }
 
     /**
@@ -79,7 +97,16 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //  
+        $patient = Patient::find($id);
+        $patient->name = $request->name;
+        $patient->birthdate = $request->birthdate;
+        $patient->disability = $request->disability;
+        if($request->file('photo')){
+            $path = Storage::disk('public')->put('images',  $request->file('photo'));
+            $patient->fill(['photo'=> asset($path)])->save();
+        }
+        $patient->save();
+        return redirect()->route('employee.index')->with('info', 'El paciente '.$request->name.' fue guardado.');
     }
 
     /**
@@ -90,6 +117,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $patient = Patient::find($id);
+        $name = Patient::find($id)->name;
+        $patient->delete();
+        return  back()->with('info', 'El paciente '.$name.' fue eliminado.');
     }
 }

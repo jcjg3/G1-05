@@ -25,6 +25,6 @@ class PatientController extends Controller
 
         $patients = Patient::find($id);
         $patients->delete();
-        return back()->with('info','paciente eliminada');
+        return back()->with('info','paciente eliminado');
     }
 }

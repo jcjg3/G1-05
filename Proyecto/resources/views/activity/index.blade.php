@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('content')
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,30 +10,50 @@
     <title>Actividades</title>
 </head>
 <body>
-<h1> Actividades </h1>
-<table class =  "table table-hover table-striped">
-    <thead> 
-    </thead>
-    <tbody>
-        @foreach($activities as $activity)
-        <tr>
-            <td>  {{ $activity->id }}  </td>
-            <td> <strong> {{ $activity->name }} </strong> </td>
-            <td> {{ $activity->description }} </td>
-            <td> 
-            <form action="{{route('activity.destroy',$activity->id)}}" method ="POST">
-                {{ csrf_field()}}
-                <input type="hidden" name= "_method" value="DELETE"> 
-                <button> borrar</button>
-            </form>
-         </td>
-         <td>
-         <a href="{{route('activity.show',$activity->id)}}"><button>ver </button></a> </td>
-        </tr>
-        @endforeach
-        {!! $activities->render()!!}
-    </tbody>
-</table> 
+<div class="col-lg-8">
+<div class="card mb-3">
+  <div class="card-header"><i class="fa fa-table"></i> Lista de Actividades
+      <a class="btn btn-success pull-right" href="{{ route('activity.create')}}" role="button">Nuevo</a>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+    
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+              
+              <th>ID</th>
+              <th>Nombre</th>
+              <th></th>
+              <th></th>
+              <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          @foreach($activities as $activity)
+          <tr>
+              <td>{{ $activity->id }}</td>
+              <td>{{ $activity->name }}</td>
+              <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('activity.show', $activity->id)}}" role="button">Ver</a></td>
+              <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('activity.edit', $activity->id)}}" role="button">Editar</a></td>
+              <td class="text-center">
+              <form action="{{ route('activity.destroy', $activity->id)}}" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="btn btn-success btn-sm">Eliminar</button>
+              </form>
+             </td>
+          </tr>
+          @endforeach
+          
+          </tbody>
+        </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
 </body>
 </html>
 

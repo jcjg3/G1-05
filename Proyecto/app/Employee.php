@@ -4,15 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EmployeeRequest;
+
 
 class employee extends Model
 {
     protected $table = 'employees';
 
     protected $fillable = [
-        'name', 'email', 'birthdate', 'contract', 'phone', 'photo', 'clinic',
+        'name', 'email', 'birthdate', 'contract', 'phone', 'photo', 'password', 'id_user',
     ];
     public function patients(){
         return $this->belongsToMany(Patient::class, 'employee_patient')->withPivot('activity_id', 'fecha', 'hora');
@@ -21,7 +23,6 @@ class employee extends Model
     public function activities(){
         return $this->belongsToMany(Activity::class, 'employee_patient')->withPivot('patient_id', 'fecha', 'hora');
     }
-
     public function clinics(){
         return $this->belongTo(Clinic::class, 'clinic_employee');
     }
@@ -50,7 +51,9 @@ class employee extends Model
     public function search($id){
         return $employee = Employee::find($id);
     }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
-    
     
 }

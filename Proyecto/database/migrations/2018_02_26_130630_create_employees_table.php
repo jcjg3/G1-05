@@ -23,6 +23,9 @@ class CreateEmployeesTable extends Migration
            $table->string('photo')->nullable();
            $table->string('clinic_id')->nullable();
            $table->foreign('clinic_id')->references('id')->on('clinic');
+           $table->string('password');
+           $table->integer('user_id')->nullable();
+           $table->foreign('user_id')->references('id')->on('users');
            $table->timestamps();
 
         });
