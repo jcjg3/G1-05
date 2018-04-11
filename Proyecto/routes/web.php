@@ -23,11 +23,10 @@ Route::get('/', function(){
 //Route::resource('activity','ActivityController');
 //Route::resource('patient','PatientController');
 
-
-
 Auth::routes();
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin', 'AdminController');
+    Route::resource('clinics','ClinicController');
 });
 Route::group(['middleware' => 'user'], function () {
     Route::resource('employee', 'EmployeeController');

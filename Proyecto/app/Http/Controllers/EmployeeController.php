@@ -22,7 +22,7 @@ class EmployeeController extends Controller
          $this->middleware('user');
      }
     public function index()
-    {
+    {    
         $id = Auth::user()->id;
         $empl = Employee::get();
         foreach($empl as $emp){
@@ -107,7 +107,6 @@ class EmployeeController extends Controller
         }
         $patient->save();
         return redirect()->route('employee.index')->with('info', 'El paciente '.$request->name.' fue guardado.');
-       
     }
 
     /**
