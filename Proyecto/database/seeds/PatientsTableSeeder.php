@@ -16,6 +16,7 @@ class PatientsTableSeeder extends Seeder
         $faker = Faker::create();
 
         foreach(range(1,20) as $index){
+
             DB::table('patients')->insert([
                 ('name') => $faker->name,
                 ('birthdate') => $faker->date($format = 'd-m-Y', $max = 'now'),
@@ -24,6 +25,7 @@ class PatientsTableSeeder extends Seeder
                 ('address') => $faker->address,
                 ('photo') => '../images/nophoto.png',
                 ('sexo') => 'female'
+                'photo' => '../images/e1.jpeg',
             ]);
         }
         //11

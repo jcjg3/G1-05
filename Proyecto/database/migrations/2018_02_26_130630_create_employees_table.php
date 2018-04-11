@@ -21,6 +21,9 @@ class CreateEmployeesTable extends Migration
            $table->string('contract');
            $table->string('phone');
            $table->string('photo')->nullable();
+           $table->string('password');
+           $table->integer('user_id')->nullable();
+           $table->foreign('user_id')->references('id')->on('users');
            $table->timestamps();
         });
     }

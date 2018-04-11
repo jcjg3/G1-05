@@ -11,13 +11,26 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+Route::get('/', function(){
+    return view('auth.login');
 });
 
-Route::resource('employees', 'EmployeeController');
-Route::resource('admin', 'AdminController');
-Route::resource('activity','ActivityController');
-Route::resource('patient','PatientController');
+//Route::resource('employees', 'EmployeeController');
+//Route::resource('admin', 'AdminController');
+//Route::resource('activity','ActivityController');
+//Route::resource('patient','PatientController');
 
 
+
+Auth::routes();
+Route::group(['middleware' => 'admin'], function () {
+    Route::resource('admin', 'AdminController');
+});
+Route::group(['middleware' => 'user'], function () {
+    Route::resource('employee', 'EmployeeController');
+});
+//Route::get('/home', 'HomeController@index')->name('home');
+//Route::resource('admin', 'AdminController');
