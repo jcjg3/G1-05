@@ -8,7 +8,7 @@
       <div class="card-header"><i class="fa fa-file-photo-o"></i>Imagen</div>
       <div class="card-body">
       <div class="text-center"> 
-      @include('admin.fragment.image')
+      @include('employee.fragment.image')
         </div>
         <canvas id="myBarChart" width="100" height="50"></canvas>
         <div class="col-md-12 text-center"> 
@@ -17,15 +17,15 @@
     </div>
   </div>  
 
-  <div class="col-lg-8">
+  <div class="col-lg-5">
     <div class="card mb-3">
       <div class="card-header"><i class="fa fa-bar-chart"></i> Información</div>
         <div class="card-body">
 
-        @include('admin.fragment.error')
+        @include('employee.fragment.error')
 
-        {{ Form::model($employee, ['route' => ['admin.update', $employee->id], 'method' => 'PUT', 'files' => true])}}
-             @include('admin.fragment.form')
+        {{ Form::model($employee, ['route' => ['employee.update', $employee->id], 'method' => 'PUT', 'files' => true])}}
+             @include('employee.fragment.form')
         {!! Form::close() !!}
         </div>
         </div>

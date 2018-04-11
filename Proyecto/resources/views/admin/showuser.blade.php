@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="col-lg-12">
+<div class="col-lg-8">
 <div class="card mb-3">
   <div class="card-header"><i class="fa fa-table"></i> Lista de Usuarios</div>
   <div class="card-body">
@@ -23,16 +23,16 @@
           </thead>
 
           <tbody>
-          @foreach($patients as $patient)
+          @foreach($employees as $employee)
           <tr>
-              <td style="text-align:center;"> <img src="{{ $patient->photo }}" style="width:55px;height:55px" class=""> </td>
-              <td>{{ $patient->id }}</td>
-              <td>{{ $patient->name }}</td>
-              <td>{{ $patient->email }}</td>
-              <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('employee.show', $patient->id)}}" role="button">Ver</a></td>
-              <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('employee.edit', $patient->id)}}" role="button">Editar</a></td>
+              <td style="text-align:center;"> <img src="{{ $employee->photo }}" style="width:55px;height:55px" class=""> </td>
+              <td>{{ $employee->id }}</td>
+              <td>{{ $employee->name }}</td>
+              <td>{{ $employee->email }}</td>
+              <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('admin.show', $employee->id)}}" role="button">Ver</a></td>
+              <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('admin.edit', $employee->id)}}" role="button">Editar</a></td>
               <td class="text-center">
-              <form action="{{ route('employee.destroy', $patient->id)}}" method="POST">
+              <form action="{{ route('admin.destroy', $employee->id)}}" method="POST">
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="DELETE">
                 <button class="btn btn-success btn-sm">Eliminar</button>
