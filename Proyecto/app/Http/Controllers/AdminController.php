@@ -19,9 +19,9 @@ class AdminController extends Controller
      protected $guarded = array();
     public function index()
     {
-        $employees = Employee::all();
+        $employee = new Employee();
         //Enviamos esos registros a la vista.
-        
+        $employees = $employee->list(); 
         return view($this->path.'.index', compact('employees'));
     }
 
@@ -43,17 +43,7 @@ class AdminController extends Controller
      */
     public function store(EmployeeRequest $request)
     {
-       $employee = new Employee;
-        $employee->name = $request->name;
-        $employee->email = $request->email;
-        $employee->phone = $request->phone;
-        $employee->contract = $request->contract;
-        $employee->birthdate = $request->birthdate;
-        if($request->file('photo')){
-            $path = Storage::disk('public')->put('images',  $request->file('photo'));
-            $employee->fill(['photo'=> asset($path)])->save();
-        }
-        $employee->save();
+        $employee->store($request);
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue guardado.');
        
        
@@ -67,7 +57,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $employee = Employee::find($id);
+        $employe = new Employee;
+        $employee = $employe->search($id);
         return view($this->path.'.show', compact('employee'));
     }
 
@@ -79,7 +70,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $employee = Employee::find($id);
+        $employe = new Employee;
+        $employee = $employe->search($id);
         return view($this->path.'.edit', compact('employee'));
     }
 
@@ -92,16 +84,9 @@ class AdminController extends Controller
      */
     public function update(EmployeeRequest $request, $id)
     {
-        $employee = Employee::find($id);
-        $employee->name = $request->name;
-        $employee->email = $request->email;
-        $employee->phone = $request->phone;
-        $employee->birthdate = $request->birthdate;
-        if($request->file('photo')){
-            $path = Storage::disk('public')->put('images',  $request->file('photo'));
-            $employee->fill(['photo'=> asset($path)])->save();
-        }
-        $employee->save();
+        $employe = new Employee;
+        $employee = $employe->search($id);
+        $employee->store($request);
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue actualizado.');
     }
 
@@ -113,8 +98,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $employee = Employee::find($id);
-        $name = Employee::find($id)->name;
+        $employe = new Employee;
+        $employee = $employe->search($id);
+        $name = $employee->name;
         $employee->delete();
         return  back()->with('info', 'El usuario '.$name.' fue eliminado.');
     }

@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\EmployeeRequest;
+
 class employee extends Model
 {
     protected $table = 'employees';
@@ -22,5 +25,32 @@ class employee extends Model
     public function clinics(){
         return $this->belongTo(Clinic::class, 'clinic_employee');
     }
+
+    public function list(){
+        $employees = Employee::all();
+        return $employees;
+    }
+
+
+    public function store(EmployeeRequest $request){
+        $employee = new Employee;
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        $employee->phone = $request->phone;
+        $employee->contract = $request->contract;
+        $employee->birthdate = $request->birthdate;
+        if($request->file('photo')){
+            $path = Storage::disk('public')->put('images',  $request->file('photo'));
+            $employee->fill(['photo'=> asset($path)])->save();
+        }
+        $employee->save();   
+    
+    }
+
+    public function search($id){
+        return $employee = Employee::find($id);
+    }
+
+    
     
 }

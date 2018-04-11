@@ -18,9 +18,11 @@ class EmployeeController extends Controller
     {
         //Traemos todos los registros de los usuarios.
         
-        $employees = Employee::all();
-        //Enviamos esos registros a la vista.
         
+        $employee = new Employee();
+        $employees = $employee->list(); 
+        //Enviamos esos registros a la vista.
+
         return view($this->path.'.index', compact('employees'));
         //return view('employee.index');
     }
@@ -77,7 +79,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //  
     }
 
     /**
