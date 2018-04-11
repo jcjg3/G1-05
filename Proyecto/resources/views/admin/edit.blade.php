@@ -25,7 +25,6 @@
         @include('admin.fragment.error')
 
         {{ Form::model($employee, ['route' => ['admin.update', $employee->id], 'method' => 'PUT', 'files' => true])}}
-        
              @include('admin.fragment.form')
         {!! Form::close() !!}
         </div>

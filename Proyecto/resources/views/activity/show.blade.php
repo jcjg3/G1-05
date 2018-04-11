@@ -12,6 +12,7 @@
 </head>
 <body>
 <h2>{{$activity->name }}</h2>
+<
 </body>
 </html>
 

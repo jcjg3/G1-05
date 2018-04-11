@@ -32,6 +32,11 @@
     <div class="col-sm-10">
     {!! Form::text('birthdate', null, ['class' => 'form-control-plaintext']) !!}
     </div>
+<div class="form-group">
+    {!! Form::Label('password', 'clave', ['class' => 'col-sm-6 col-form-label','style' =>'text-decoration: underline;font-weight: 900; font-size:20px;']) !!}
+    <div class="col-sm-10">
+    {!! Form::text('password', null, ['class' => 'form-control-plaintext']) !!}
+</div>
 </div>
   
   

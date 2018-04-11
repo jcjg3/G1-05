@@ -11,7 +11,11 @@
     <title>actividad </title>
 </head>
 <body>
-<h2>{{$activities->name }}</h2>
+<h2>Editar actividad </h2>
+
+{!! Form::model($activity, ['route' => ['activity.update',$activity->id],'method' =>'PUT']) !!}
+     @include('activity.Fragment.form')
+{!!Form::close()!!}
 </body>
 </html>
 
