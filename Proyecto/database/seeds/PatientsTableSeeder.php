@@ -24,8 +24,7 @@ class PatientsTableSeeder extends Seeder
                 ('phone') => $faker->phoneNumber,
                 ('address') => $faker->address,
                 ('photo') => '../images/nophoto.png',
-                ('sexo') => 'female'
-                'photo' => '../images/e1.jpeg',
+                ('sexo') => 'female',
             ]);
         }
         //11
