@@ -15,6 +15,7 @@
               <th>ID</th>
               <th>Nombre</th>
               <th>Correo</th>
+              <th>Clinica</th>
               
               <th></th>
               <th></th>
@@ -29,6 +30,7 @@
               <td>{{ $employee->id }}</td>
               <td>{{ $employee->name }}</td>
               <td>{{ $employee->email }}</td>
+              <td>{{ $employee->clinic_id }}</td>
               <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('admin.show', $employee->id)}}" role="button">Ver</a></td>
               <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('admin.edit', $employee->id)}}" role="button">Editar</a></td>
               <td class="text-center">
