@@ -50,16 +50,15 @@ class AdminController extends Controller
     public function store(EmployeeRequest $request)
     {
 
-        
+        $employee = new Employee;
         $user = new User;
-        $user->name = $request->name;
+        $user-> name= $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->is_subscriber = '1';
         $user->role = 'user';
         $user->save();
         $employee->store($request, $user);
-        $employee->user()->associate($user);
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue guardado.');
        
        
