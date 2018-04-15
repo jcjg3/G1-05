@@ -41,7 +41,16 @@
             <i class="fa fa-user-plus"></i>
             <span class="nav-link-text"> Añadir</span>
           </a>
+        </li> 
+        @if(Auth::check() && Auth::user()->role=='admin')
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{ route('clinics.index')}}">
+          <i class="fa fa-user-plus"></i>
+            <span class="nav-link-text"> Clinicas</span>
+          </a>
         </li>
+        @endif
+           
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

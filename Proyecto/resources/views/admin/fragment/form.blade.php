@@ -25,6 +25,10 @@
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group">
+    {!! Form::Label('clinic', 'Clinica') !!}
+    {!! Form::text('clinic', null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group">
     {!! Form::Label('password', 'Clave') !!}
     {!! Form::text('password', null, ['class' => 'form-control']) !!}
 </div>
