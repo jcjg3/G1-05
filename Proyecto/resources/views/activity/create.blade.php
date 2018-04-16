@@ -10,11 +10,18 @@
     <title>actividad </title>
 </head>
 <body>
-<h2> Nueva actividad </h2>
+<div class="col-lg-4">
+    <div class="card mb-3">
+      <div class="card-header">Editar actividad</div>
+      <div class="card-body">
 
-{!! Form::open(['route' => 'activity.store']) !!}
-     @include('activity.Fragment.form')
-{!!Form::close()!!}
+            {!! Form::open(['route' => 'activity.store']) !!}
+                @include('activity.Fragment.form')
+            {!!Form::close()!!}
+         </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 

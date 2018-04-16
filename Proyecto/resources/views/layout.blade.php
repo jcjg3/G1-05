@@ -50,6 +50,24 @@
           </a>
         </li>
         @endif
+
+        @if(Auth::check() && Auth::user()->role=='admin')
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{ route('activity.index')}}">
+          <i class="fa fa-child"></i>
+            <span class="nav-link-text"> Actividades </span>
+          </a>
+        </li>
+        @endif
+
+        @if(Auth::check() && Auth::user()->role=='admin')
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{ route('patient.index')}}">
+          <i class="fa fa-wheelchair"></i>
+            <span class="nav-link-text"> Pacientes </span>
+          </a>
+        </li>
+        @endif
            
       </ul>
       <ul class="navbar-nav sidenav-toggler">

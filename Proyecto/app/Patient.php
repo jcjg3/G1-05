@@ -9,7 +9,7 @@ class patient extends Model
 {
     protected $table = 'patients';
     protected $fillable = [
-        'name', 'birthdate', 'disability',
+        'name', 'birthdate', 'disability','phone', 'address' , 'photo', 'sexo'
     ];
 
     public function employees(){
@@ -19,5 +19,7 @@ class patient extends Model
     public function activities(){
         return $this->belongsToMany(Activity::class, 'employee_patient')->withPivot('employee_id', 'fecha', 'hora');
     }
+
+   
 }
 
