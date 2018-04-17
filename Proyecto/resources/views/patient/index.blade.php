@@ -3,7 +3,9 @@
 @section('content')
 <div class="col-lg-8">
 <div class="card mb-3">
-  <div class="card-header"><i class="fa fa-table"></i> Lista de Pacientes</div>
+<div class="card-header"><i class="fa fa-table"></i> Lista de Pacientes
+      <a class="btn btn-success pull-right" href="{{ route('patient.create')}}" role="button">Nuevo</a>
+  </div>
   <div class="card-body">
     <div class="table-responsive">
     

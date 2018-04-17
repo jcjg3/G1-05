@@ -1,3 +1,7 @@
+
+@extends('layout')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +12,32 @@
 </head>
 <body>
     
-<div class="col-lg-4">
-    <div class="card mb-3">
-      <div class="card-header"><i class="fa fa-info-circle"></i>{{$patient->name }}</div>
-      <div class="card-body">
-       {{$patient->disability}}
+<div class="col-lg-10">
+    <div class="card mb-10">
+      <div class="card-header"> <h2> {{$patient->name }} </h2></div>
+      <div class="card-body"> 
+      
+       
+      <div class="col-lg-15">
+      <div class="card mb-10">
+        <div class="card-body">
+    
+          <img src="{{ $patient->photo }}"class="img-fluid" alt="..." align="left"> </img>
+
+        <div class="col-lg-8" align = "center">
+        <div class="card mb-6" align = "center">  
+        
+          <h3> Fecha de nacimiento: {{$patient->birthdate}} </h3>
+          <h3> sexo: {{$patient->sexo}} </h3>
+          <h3> Discapacidad: {{$patient->disability}} </h3>
+          <h3> Telefono: {{$patient->phone}} </h3>
+          <h3> Direccion: {{$patient->address}} </h3>
+          
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>      
       </div>
     </div>
   </div>
@@ -22,3 +47,4 @@
     
 </body>
 </html>
+@endsection('content')
