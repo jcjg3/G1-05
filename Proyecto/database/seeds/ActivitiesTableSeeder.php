@@ -16,7 +16,7 @@ class ActivitiesTableSeeder extends Seeder
 
             'name' => 'Grupo de ayuda mutua',
             'description' => 'ofrecer una atencion psicologica integral',
-            'votes' => '15'
+            'votes' => '1'
         ]);
         DB::table('activities')->insert([
 
