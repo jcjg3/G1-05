@@ -11,8 +11,9 @@
 </div>
 
 <div class="form-group">
-    {!! Form::Label('sexo', 'Sexo') !!}
-    {!! Form::text('sexo', null, ['class' => 'form-control']) !!}
+{!! Form::Label('sexo', 'Sexo') !!}
+{!! Form::text('sexo', null, ['class' => 'form-control']) !!}
+
 </div>
 
 <div class="form-group">
