@@ -47,9 +47,23 @@ class employee extends Model
             $employee->fill(['photo'=> asset($path)])->save();
         }
         $employee->user()->associate($user);
-        $employee->save();   
+        $employee->save();       
+    }
 
-    
+    public function update(EmployeeRequest $request){
+        $employee = new Employee;
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        $employee->phone = $request->phone;
+        $employee->contract = $request->contract;
+        $employee->birthdate = $request->birthdate;
+        $employee->clinic_id = $request->clinic;
+        $employee->password = $request->password;
+        if($request->file('photo')){
+            $path = Storage::disk('public')->put('images',  $request->file('photo'));
+            $employee->fill(['photo'=> asset($path)])->save();
+        }
+        $employee->save();       
     }
 
     public function search($id){
