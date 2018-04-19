@@ -47,9 +47,7 @@ class employee extends Model
             $employee->fill(['photo'=> asset($path)])->save();
         }
         $employee->user()->associate($user);
-        $employee->save();   
-
-    
+        $employee->save();
     }
 
     public function search($id){

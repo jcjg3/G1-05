@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 
-class patient extends Model
+class Patient extends Model
 {
     protected $table = 'patients';
     protected $fillable = [
@@ -20,6 +20,12 @@ class patient extends Model
         return $this->belongsToMany(Activity::class, 'employee_patient')->withPivot('employee_id', 'fecha', 'hora');
     }
 
-   
-}
+    public function search($id){
+        return $patient = Patient::find($id);
+    }
 
+    public function list(){
+        $patients = Patient::all();
+        return $patients;
+    }
+}
