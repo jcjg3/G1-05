@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use App\Employee;
 
 class EmployeesTableSeeder extends Seeder
 {
@@ -16,20 +17,34 @@ class EmployeesTableSeeder extends Seeder
 
         DB::table('employees')->delete();
 
-        /*$faker = Faker::create();
-        foreach(range(1,4) as $index){
+        $faker = Faker::create();
             DB::table('employees')->insert([
-                'name' => $faker->name,
-                'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
-                'clinic_id'=>$clinic,
-                'email' => $faker->email,
-                'contract' => $faker->numberBetween(90000,10000),
-                'phone' => $faker->phoneNumber,
-                'photo' => '',
-                'password' => bcrypt('user'),
+            'name' => 'jj',
+            'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
+            'clinic_id'=> 1,
+            'email' => 'jj@gmail.com',
+            'contract' => $faker->numberBetween(90000,10000),
+            'phone' => $faker->phoneNumber,
+            'photo' => '',
+            'password' => bcrypt('user'),
 
-            ]);
-        }*/
+        ]);
+        DB::table('employees')->insert([
+            'name' => 'cisco',
+            'birthdate' => $faker->date($format = 'd-m-Y', $max = 'now'),
+            'clinic_id'=>1,
+            'email' => 'cisco@gmail.com',
+            'contract' => $faker->numberBetween(90000,10000),
+            'phone' => $faker->phoneNumber,
+            'photo' => '',
+            'password' => bcrypt('user'),
+
+        ]);
+        
+        $employee = Employee::find(1);
+        $employee->user()->associate(2);
+        $employee = Employee::find(1);
+        $employee->user()->associate(3);
         //identificador 11
 
         /*DB::table('employees')->insert([
