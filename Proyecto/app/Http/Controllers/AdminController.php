@@ -96,7 +96,7 @@ class AdminController extends Controller
     {
         $employe = new Employee;
         $employee = $employe->search($id);
-        $employee->update($request);
+        $employee->updateP($request);
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue actualizado.');
     }
 

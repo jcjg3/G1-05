@@ -6,7 +6,6 @@ use App\Http\Requests\PatientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Patient;
-use App\Http\Requests\PatientRequest;
 
 class PatientController extends Controller
 {
@@ -21,17 +20,6 @@ class PatientController extends Controller
         $patient =  Patient::find($id);
         
         return view('patient.show',compact('patient'));
-    }
-
-    public function create() {
-        return view('patient.create');
-    }
-
-    public function edit($id)
-    {
-        $patient = new Patient;
-        $patient = $patient->search($id);
-        return view('patient.edit', compact('patient'));
     }
 
     public function destroy($id) {

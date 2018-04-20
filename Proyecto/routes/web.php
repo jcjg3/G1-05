@@ -32,6 +32,9 @@ Route::group(['middleware' => 'admin'], function () {
 });
 Route::group(['middleware' => 'user'], function () {
     Route::resource('employee', 'EmployeeController');
+    Route::resource('clinics','ClinicController');
+    Route::resource('activity','ActivityController');
+    Route::resource('patient','PatientController');
 });
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::resource('admin', 'AdminController');

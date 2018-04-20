@@ -70,9 +70,6 @@ class Patient extends Model
         return $patient;
 
     }
-
-   
-}
     public function list(){
         $patients = Patient::all();
         return $patients;

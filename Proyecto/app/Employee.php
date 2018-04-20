@@ -3,13 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EmployeeRequest;
 
 
-class employee extends Model
+class Employee extends Model
 {
     protected $table = 'employees';
 
@@ -50,7 +48,7 @@ class employee extends Model
         $employee->save();       
     }
 
-    public function update(EmployeeRequest $request){
+    public function updateP(EmployeeRequest $request){
         $employee = new Employee;
         $employee->name = $request->name;
         $employee->email = $request->email;
