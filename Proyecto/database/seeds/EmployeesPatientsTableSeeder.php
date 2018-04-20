@@ -20,7 +20,7 @@ class EmployeesPatientsTableSeeder extends Seeder
         //$patients=App\patient::get();
         
        
-        /*$faker = Faker::create();
+        $faker = Faker::create();
         $medico = DB::table('employees')->where('id',1)->value('id');
         $activity = DB::table('activities')->where('id', 2)->value('id');
         $patient = DB::table('patients')->where('id', 2)->value('id');
@@ -31,9 +31,9 @@ class EmployeesPatientsTableSeeder extends Seeder
             'employee_id' => $medico,
             'activity_id' => $activity 
         ]);
-        */
-        /*foreach($patients as $patient){
-            $medico = DB::table('employees')->where('id',rand(1,10))->value('id');
+        /*
+        foreach($patients as $patient){
+            $medico = DB::table('employees')->where('id',rand(1,2))->value('id');
             $activity = DB::table('activities')->where('id',rand(1,3))->value('id');
             DB::table('employee_patient')->insert([
                 'fecha' => $faker->date($format = 'd-m-Y', $max = '31-12-2022'),
@@ -44,6 +44,5 @@ class EmployeesPatientsTableSeeder extends Seeder
                 ]);
 
         }*/
-
     }
 }
