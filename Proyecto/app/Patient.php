@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 
 
 
-class patient extends Model
+class Patient extends Model
 {
     protected $table = 'patients';
     protected $fillable = [
@@ -23,6 +23,9 @@ class patient extends Model
         return $this->belongsToMany(Activity::class, 'employee_patient')->withPivot('employee_id', 'fecha', 'hora');
     }
 
+    public function search($id){
+        return $patient = Patient::find($id);
+    }
     public function searchPatient($id){
 
         return $patient = Patient::find($id);
@@ -51,7 +54,6 @@ class patient extends Model
     }
 
     public function updatePatient(PatientRequest $request, $id){
-        
         $patient = $this->searchPatient($id);
         $patient->name = $request->name;
         $patient->disability = $request->disability;
@@ -68,7 +70,8 @@ class patient extends Model
         return $patient;
 
     }
-
-   
+    public function list(){
+        $patients = Patient::all();
+        return $patients;
+    }
 }
-

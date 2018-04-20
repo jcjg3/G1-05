@@ -1,33 +1,36 @@
-
 @extends('layout')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Paciente</title>
-</head>
-<body>
-    
-<div class="col-lg-10">
-    <div class="card mb-10">
-      <div class="card-header"> <h2> {{$patient->name }} </h2></div>
-      <div class="card-body"> 
-          
-             {!! Form::model($patient, ['route' => ['patient.update',$patient->id],'method' =>'PUT']) !!}
-                @include('patient.fragment.formulario')
-            {!!Form::close()!!}
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa fa-file-photo-o"></i>Imagen</div>
+                <div class="card-body">
+                    <div class="text-center">
+                        @include('patient.fragment.image')
+                    </div>
+                    <canvas id="myBarChart" width="100" height="50"></canvas>
+                    <div class="col-md-12 text-center">
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="col-lg-8">
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa fa-bar-chart"></i> Información</div>
+                <div class="card-body">
+
+                    @include('patient.fragment.error')
+
+                    {{ Form::model($patient, ['route' => ['patient.update', $patient->id], 'method' => 'PUT', 'files' => true])}}
+                    @include('patient.fragment.form')
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
-    
 
-
-  
-    
-</body>
-</html>
-@endsection('content')
+@endsection
