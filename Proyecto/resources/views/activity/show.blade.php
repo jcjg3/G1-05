@@ -11,8 +11,19 @@
     <title>actividad </title>
 </head>
 <body>
-<h2>{{$activity->name }}</h2>
-<
+
+<div class="col-lg-4">
+    <div class="card mb-3">
+      <div class="card-header"><i class="fa fa-info-circle"></i>{{$activity->name }}</div>
+      <div class="card-body">
+       {{$activity->description}}
+       <div align = "right">
+         <td class="text-right"> <a type="button" class="btn btn-success btn-sm" href="{{ route('activity.edit', $activity->id)}}" role="button">Editar</a></td>
+      </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
 
