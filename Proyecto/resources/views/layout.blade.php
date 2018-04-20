@@ -41,7 +41,17 @@
             <i class="fa fa-user-plus"></i>
             <span class="nav-link-text"> Añadir Empleado</span>
           </a>
-        </li> 
+        </li>
+
+        @if(Auth::check() && Auth::user()->role=='admin')
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="{{ route('patient.create')}}">
+              <i class="fa fa-user-plus"></i>
+              <span class="nav-link-text"> Añadir paciente</span>
+            </a>
+          </li>
+        @endif
+
         @if(Auth::check() && Auth::user()->role=='admin')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="{{ route('clinics.index')}}">
