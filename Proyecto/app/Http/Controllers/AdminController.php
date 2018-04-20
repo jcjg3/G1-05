@@ -50,7 +50,7 @@ class AdminController extends Controller
     public function store(EmployeeRequest $request) {
         $employee = new Employee;
         $user = new User;
-        $user-> name= $request->name;
+        $user->name= $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->is_subscriber = '1';
@@ -96,7 +96,7 @@ class AdminController extends Controller
     {
         $employe = new Employee;
         $employee = $employe->search($id);
-        $employee->store($request);
+        $employee->update($request);
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue actualizado.');
     }
 

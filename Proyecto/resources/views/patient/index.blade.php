@@ -8,17 +8,13 @@
                 <div class="table-responsive">
                     @include('admin.fragment.info')
 
+
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
                             <th>Imagen</th>
                             <th width="20px">ID</th>
                             <th>Nombre</th>
-                            <th>Fecha de nacimiento</th>
-                            <th>Minusvalía</th>
-                            <th>Direccion</th>
-                            <th>Telefono</th>
-                            <th>Sexo</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -32,11 +28,6 @@
                                 <td style="text-align:center;"> <img src="{{ $patient->photo }}" style="width:55px;height:55px" class=""> </td>
                                 <td>{{ $patient->id }}</td>
                                 <td>{{ $patient->name }}</td>
-                                <td>{{ $patient->birthdate }}</td>
-                                <td>{{ $patient->disability }}</td>
-                                <td>{{ $patient->address }}</td>
-                                <td>{{ $patient->phone }}</td>
-                                <td>{{ $patient->sexo }}</td>
                                 <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('patient.show', $patient->id)}}" role="button">Ver</a></td>
                                 <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('patient.edit', $patient->id)}}" role="button">Editar</a></td>
                                 <td class="text-center">

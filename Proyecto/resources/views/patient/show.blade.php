@@ -1,3 +1,4 @@
+
 @extends('layout')
 
 @section('content')
@@ -7,6 +8,7 @@
             <div class="card mb-3">
                 <div class="card-header"><i class="fa fa-file-photo-o"></i>Imagen</div>
                 <div class="card-body">
+
 
                     @include('patient.fragment.image')
 
@@ -27,4 +29,9 @@
         </div>
     </div>
 
-@endsection
+
+  
+    
+</body>
+</html>
+@endsection('content')

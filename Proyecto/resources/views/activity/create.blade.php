@@ -15,9 +15,10 @@
       <div class="card-header">Editar actividad</div>
       <div class="card-body">
 
-            {!! Form::open(['route' => 'activity.store']) !!}
-                @include('activity.Fragment.form')
-            {!!Form::close()!!}
+            {{ Form::open(['route' => 'activity.store', 'method' => 'post', 'files' => true])}}
+            @include('activity.Fragment.form')
+            
+            {!! Form::close() !!}
          </div>
         </div>
     </div>
