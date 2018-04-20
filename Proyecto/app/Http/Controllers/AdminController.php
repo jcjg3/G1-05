@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
         $employee = new Employee();
         //Enviamos esos registros a la vista.
-        $employees = $employee->list(); 
+        $employees = $employee->list();
         return view($this->path.'.index', compact('employees'));
     }
 
@@ -47,12 +47,10 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EmployeeRequest $request)
-    {
-
+    public function store(EmployeeRequest $request) {
         $employee = new Employee;
         $user = new User;
-        $user-> name= $request->name;
+        $user->name= $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
         $user->is_subscriber = '1';
@@ -60,8 +58,6 @@ class AdminController extends Controller
         $user->save();
         $employee->store($request, $user);
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue guardado.');
-       
-       
     }
 
     /**
@@ -100,7 +96,7 @@ class AdminController extends Controller
     {
         $employe = new Employee;
         $employee = $employe->search($id);
-        $employee->store($request);
+        $employee->updateP($request);
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue actualizado.');
     }
 
