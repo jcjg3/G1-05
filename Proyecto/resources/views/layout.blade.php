@@ -29,11 +29,39 @@
           <i class="fa fa-navicon"></i>
             <span class="nav-link-text"> Inicio</span>
           </a>
+        </li>      
+        @if(Auth::check() && Auth::user()->role=='admin')
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">Añadir</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMulti">
+            <li>
+            <a class="nav-link" href="{{ route('admin.create')}}">
+        
+              <i class="fa fa-user-plus"></i>
+              <span class="nav-link-text"> Añadir Empleado</span>
+            </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{ route('clinics.create')}}">
+          <i class="fa fa-fort-awesome"></i>
+            <span class="nav-link-text">Añadir Clinicas</span>
+          </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          
-            <a class="nav-link" href="{{ route('admin.create')}}">
-          
+            <a class="nav-link" href="{{ route('patient.create')}}">
+              <i class="fa fa-user-plus"></i>
+              <span class="nav-link-text"> Añadir paciente</span>
+            </a>
+          </li>
+          </ul>
+        </li>
+        @endif
+        @if(Auth::check() && Auth::user()->role=='user')
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+            <a class="nav-link" href="{{ route('patient.create')}}">
               <i class="fa fa-user-plus"></i>
               <span class="nav-link-text"> Añadir Empleado</span>
             </a>
@@ -62,17 +90,22 @@
               <span class="nav-link-text">Añadir Clinicas</span>
             </a>
           </li>
-        @endif
+          @endif
+        @if(Auth::check() && Auth::user()->role=='admin')
        
 
-        @if(Auth::check() && Auth::user()->role=='user')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="{{ route('patient.index')}}">
           <i class="fa fa-navicon"></i>
             <span class="nav-link-text"> Inicio</span>
           </a>
         </li>
+       
+        @endif
 
+
+
+        @if(Auth::check() && Auth::user()->role=='user')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="{{ route('appoiment.index')}}">
           <i class="fa fa-navicon"></i>
