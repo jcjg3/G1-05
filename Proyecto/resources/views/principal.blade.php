@@ -18,7 +18,7 @@
 						</h1>
 						<p>En la página contamos con todos los detalles sobre el proyecto que hemos realizado....</p>
 						<ul class="actions">
-							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Mas información</a></li>
+							<li><a href="{{route('informacion')}}" class="button icon solo fa-arrow-down scrolly">Mas información</a></li>
 						</ul>
 					</div>
 
