@@ -36,27 +36,16 @@ class ActivityController extends Controller
 
     public function create (){
         return view('activity.create');
-
     }
 
     public function store (ActivityRequest $request){
-        $activity = new Activity;
-
-        $activity->name = $request->name;
-        $activity->description = $request->description;
-        $activity->votes = $request->votes;
-
-        $activity->save();
+        $ac = new Activity;
+        $activity = $ac->storeActivity($request);
         return redirect()->route('activity.index');
     }
     public function update (ActivityRequest $request , $id){
-
-        $activity = Activity::find($id);
-        $activity->name = $request->name;
-        $activity->description = $request->description;
-        $activity->votes = $request->votes;
-
-        $activity->save();
+        $ac = new Activity;
+        $activity = $ac->updateActivity($request,$id);
         return redirect()->route('activity.index');
     }
 }
