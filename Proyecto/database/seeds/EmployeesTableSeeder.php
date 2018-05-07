@@ -27,6 +27,7 @@ class EmployeesTableSeeder extends Seeder
             'phone' => $faker->phoneNumber,
             'photo' => '',
             'password' => bcrypt('user'),
+            
 
         ]);
         DB::table('employees')->insert([
