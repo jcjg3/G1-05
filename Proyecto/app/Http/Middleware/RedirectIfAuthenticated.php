@@ -17,9 +17,11 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
+       /* if (Auth::guard($guard)->check()) {
+            $request->session()->put('key', 'value');
             return response()->json(['error' => 'Already authenticated.'], 400);
-        }
+
+        }*/
 
         return $next($request);
     }
