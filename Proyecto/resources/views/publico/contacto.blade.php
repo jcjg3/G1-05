@@ -16,15 +16,15 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" </link></noscript>
+    <!--PRUEBA-->
 
   </head>
-  <body id="is-loading">
+  <body id="is-loading ">
 
     		<!-- Wrapper -->
         <div id="wrapper">
@@ -51,21 +51,32 @@
             </nav>
 
         </div>
-    <!-- Map -->
-    <section id="contact" class="map">
-      <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70748.41801669165!2d-0.5617965957112254!3d38.402927500908916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfd9eefee0ca0863a!2sAsociaci%C3%B3n+de+Da%C3%B1o+Cerebral+Adquirido+de+la+provincia+de+Alicante!5e0!3m2!1ses!2ses!4v1525449321900"></iframe>
-      <br/>
-      <small>
-        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70748.41801669165!2d-0.5617965957112254!3d38.402927500908916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfd9eefee0ca0863a!2sAsociaci%C3%B3n+de+Da%C3%B1o+Cerebral+Adquirido+de+la+provincia+de+Alicante!5e0!3m2!1ses!2ses!4v1525449321900"></a>
-      </small>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer text-center">
+  
+    <section id="contact" class="map">
       <div class="container">
-        <p class="text-muted small mb-0">Copyright &copy; Your Website 2017</p>
+        <div class="row-fluid">
+              <div class="span8">
+                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70748.41801669165!2d-0.5617965957112254!3d38.402927500908916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfd9eefee0ca0863a!2sAsociaci%C3%B3n+de+Da%C3%B1o+Cerebral+Adquirido+de+la+provincia+de+Alicante!5e0!3m2!1ses!2ses!4v1525449321900"></iframe>
+                  <small>
+                    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70748.41801669165!2d-0.5617965957112254!3d38.402927500908916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfd9eefee0ca0863a!2sAsociaci%C3%B3n+de+Da%C3%B1o+Cerebral+Adquirido+de+la+provincia+de+Alicante!5e0!3m2!1ses!2ses!4v1525449321900"></a>
+                  </small>
+              </div>
+    	
+            <div class="span4" syle= "color:white">
+              <h2 style= "color:white">Adacea Alicante</h2>
+              <address style= "color:white">
+                <strong style= "color:white">Horario de atencion</strong>
+                <br> lunes-Viernes de 9:00 a 14:00 horas<br>
+                <strong style= "color:white">Teléfonos de contacto</strong>
+                <br> 965133906 / 605283459<br>
+                <strong style= "color:white">Email de contacto</strong>
+               <br> admon@adaceaalicante.org<br>
+              </address>
+            </div>
+        </div>
       </div>
-    </footer>
+    </section>
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">

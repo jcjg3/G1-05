@@ -14,9 +14,8 @@
 
 				<!-- Intro -->
 					<div id="intro">
-						<h1>Bienvenidos<br />
-						</h1>
-						<p>En la página contamos con todos los detalles sobre el proyecto que hemos realizado....</p>
+						<h1>Bienvenidos<br/></h1>
+						<p>Este proyecto esta realizado para la ONG ADACEA</p>
 						<ul class="actions">
 							<li><a href="{{route('informacion')}}" class="button icon solo fa-arrow-down scrolly">Mas información</a></li>
 						</ul>
@@ -31,7 +30,7 @@
 					<nav id="nav">
 						<ul class="links">
 							<li class="active"><a href="{{url('/')}}">Incio</a></li>
-                            <li><a href="{{route('informacion')}}">Informacion del Proyeco</a></li>
+                            <li><a href="{{route('informacion')}}">Informacion del Proyecto</a></li>
                             <li><a href="{{route('contacto')}}">Contacto</a></li>
 							<li><a href="{{ route('login') }}">Iniciar sesión</a></li>
 						</ul>
