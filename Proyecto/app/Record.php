@@ -9,4 +9,9 @@ class Record extends Model
     public function patient() {
         return $this->belongsTo('App\Patient');
     }
+
+    public function list(){
+        $records = Record::all();
+        return $records;
+    }
 }

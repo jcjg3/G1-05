@@ -25,6 +25,7 @@ Route::get('/', function(){
 
 
 Route::resource('clinics','ClinicController');
+Route::resource('records','RecordController');
 Route::resource('activity','ActivityController');
 Route::resource('patient','PatientController');
 Auth::routes();
