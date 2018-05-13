@@ -29,7 +29,8 @@
           <i class="fa fa-navicon"></i>
             <span class="nav-link-text"> Inicio</span>
           </a>
-        </li>      
+        </li>
+        @endif
         @if(Auth::check() && Auth::user()->role=='admin')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
