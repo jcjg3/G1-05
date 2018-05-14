@@ -54,16 +54,17 @@
 
   
     <section id="contact" class="map">
+    <pre> </pre>
       <div class="container">
-        <div class="row-fluid">
-              <div class="span8">
-                <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70748.41801669165!2d-0.5617965957112254!3d38.402927500908916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfd9eefee0ca0863a!2sAsociaci%C3%B3n+de+Da%C3%B1o+Cerebral+Adquirido+de+la+provincia+de+Alicante!5e0!3m2!1ses!2ses!4v1525449321900"></iframe>
+        <div class="row">
+              <div class="col-sm-8 ">
+                <iframe width="100% " height="420" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70748.41801669165!2d-0.5617965957112254!3d38.402927500908916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfd9eefee0ca0863a!2sAsociaci%C3%B3n+de+Da%C3%B1o+Cerebral+Adquirido+de+la+provincia+de+Alicante!5e0!3m2!1ses!2ses!4v1525449321900"></iframe>
                   <small>
                     <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70748.41801669165!2d-0.5617965957112254!3d38.402927500908916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfd9eefee0ca0863a!2sAsociaci%C3%B3n+de+Da%C3%B1o+Cerebral+Adquirido+de+la+provincia+de+Alicante!5e0!3m2!1ses!2ses!4v1525449321900"></a>
                   </small>
               </div>
     	
-            <div class="span4" syle= "color:white">
+            <div class="col-sm-4" syle= "color:white">
               <h2 style= "color:white">Adacea Alicante</h2>
               <address style= "color:white">
                 <strong style= "color:white">Horario de atencion</strong>

@@ -117,7 +117,7 @@
                 <div class="team-member">
                   <img class="mx-auto rounded-circle" src="images/team/t1.jpg" alt="">
                   <h4>Juan Beteta</h4>
-                  <p class="text-muted">Lead Marketer</p>
+                  <pre class="text-muted">  Lead Marketer</pre>
                   <ul class="list-inline social-buttons">
                     <li class="list-inline-item">
                       <a href="#">
@@ -136,7 +136,7 @@
               <div class="team-member">
                 <img class="mx-auto rounded-circle" src="images/team/t2.jpg" alt="">
                 <h4>Jose C. Jurado</h4>
-                <p class="text-muted">Lead Marketer</p>
+                <pre class="text-muted">  Lead Marketer</pre>
                 <ul class="list-inline social-buttons">
                   <li class="list-inline-item">
                     <a href="#">
@@ -155,7 +155,7 @@
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="images/team/t3.jpg" alt="">
               <h4>Raúl Pera</h4>
-              <p class="text-muted">Lead Marketer</p>
+              <pre class="text-muted">  Lead Marketer</pre>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
                   <a href="#">
@@ -174,7 +174,7 @@
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="images/team/t1.jpg" alt="">
               <h4>Ruth Encina</h4>
-              <p class="text-muted">Lead Developer</p>
+              <pre class="text-muted">Lead Developer</pre>
               <ul class="list-inline social-buttons">
                 <li class="list-inline-item">
                   <a href="#">
