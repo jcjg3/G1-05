@@ -23,6 +23,10 @@ class patient extends Model
         return $this->belongsToMany(Activity::class, 'employee_patient')->withPivot('employee_id', 'fecha', 'hora');
     }
 
+    public function records(){
+        return $this->belongTo(Record::class,'record_patient');
+    }
+
     public function searchPatient($id){
 
         return $patient = Patient::find($id);
