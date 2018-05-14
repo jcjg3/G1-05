@@ -18,6 +18,7 @@
                             <th></th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
 
                         </thead>
@@ -37,8 +38,7 @@
                                         <button class="btn btn-success btn-sm">Eliminar</button>
                                     </form>
                                 </td>
-
-
+                                <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('appoiment.create', $patient)}}" role="button">Dar Cita</a></td>
                             </tr>
                         @endforeach
 

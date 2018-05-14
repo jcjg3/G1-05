@@ -26,6 +26,7 @@ class EmployeesTableSeeder extends Seeder
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
             'photo' => '',
+            'user_id' => 2,
             'password' => bcrypt('user'),
             
 
@@ -38,6 +39,7 @@ class EmployeesTableSeeder extends Seeder
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
             'photo' => '',
+            'user_id' => 3,
             'password' => bcrypt('user'),
 
         ]);

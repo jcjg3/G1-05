@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-lg-12">
 <div class="card mb-3">
-  <div class="card-header"><i class="fa fa-table"></i> Lista de Usuarios</div>
+  <div class="card-header"><i class="fa fa-table"></i> Lista de Pacientes</div>
   <div class="card-body">
     <div class="table-responsive">
     @include('admin.fragment.info')
@@ -16,6 +16,7 @@
               <th>Nombre</th>
               <th>Correo</th>
               
+              <th></th>
               <th></th>
               <th></th>
               <th></th>
@@ -39,6 +40,7 @@
               
               </form>
              </td>
+             <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('appoiment.create', $patient)}}" role="button">Dar Cita</a></td>
           </tr>
           @endforeach
           

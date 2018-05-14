@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\PatientRequest;
+
+use App\Http\Requests\AppoimentRequest;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -50,6 +52,13 @@ class Patient extends Model
         }
         $patient->save();
 
+        return $patient;
+    }
+    public function storeAppoiment(AppoimentRequest $request, $id){
+       
+        $patient = $this->search($request->patient_id);
+
+        $patient->employees()->attach($id,['activity_id'=>$request->activity_ids,'fecha' => $request->fecha, 'hora' =>$request->hora]);
         return $patient;
     }
 
