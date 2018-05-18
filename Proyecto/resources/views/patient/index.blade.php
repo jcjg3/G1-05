@@ -37,8 +37,6 @@
                                         <button class="btn btn-success btn-sm">Eliminar</button>
                                     </form>
                                 </td>
-
-
                             </tr>
                         @endforeach
 

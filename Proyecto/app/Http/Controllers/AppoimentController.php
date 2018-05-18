@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Employee;
+use App\Patient;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Calendar;
+=======
+use App\Http\Requests\AppoimentRequest;
+>>>>>>> b476db645645ce1467dac0659354af92efdcd006
 
 class AppoimentController extends Controller
 {
@@ -14,8 +19,8 @@ class AppoimentController extends Controller
     {
         /*
         $id = Auth::user()->id;
-        $empl = Employee::find(1);
-        echo $id;
+        $idx = $id - 1;
+        $empl = Employee::find($idx);
         $patients = $empl->patients;
         return view('appoiment.index', compact('patients'));
         */
@@ -54,6 +59,17 @@ class AppoimentController extends Controller
         return view('appoiment.index', compact('calendar'));
         
         
+    }
+    public function create(Patient $patient)
+    {
+        return view('appoiment.create', compact('patient'));
+    }
+    public function store(AppoimentRequest $request){
+        $p = new Patient;
+        $id = Auth::user()->id;
+        $idx = $id - 1;
+        $patient = $p->storeAppoiment($request, $idx);
+        return redirect()->route('employee.index')->with('info', 'La cita con el paciente cuya id es'.$request->id.' fue guardada.');
     }
 
 }

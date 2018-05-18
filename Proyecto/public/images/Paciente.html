@@ -1,147 +1,61 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<head>
+<html lang="es"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css') }}">
-  <link rel="stylesheet" href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.css') }}">
-  <link rel="stylesheet" href="{{ URL::asset('css/sb-admin.css') }}">
-  @yield('style')
-</head>
+  <link rel="stylesheet" href="Paciente_files/bootstrap.css">
+  <link rel="stylesheet" href="Paciente_files/font-awesome.css">
+  <link rel="stylesheet" href="Paciente_files/dataTables.css">
+  <link rel="stylesheet" href="Paciente_files/sb-admin.css">
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="{{ route('admin.index')}}">ADACEA</a>
+    <a class="navbar-brand" href="http://localhost:8000/admin">ADACEA</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-      
-        @if(Auth::check() && Auth::user()->role=='admin')  
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="{{ route('admin.index')}}">
-          <i class="fa fa-user"></i>
-            <span class="nav-link-text"> Empleados</span>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+          
+          <a class="nav-link" href="http://localhost:8000/admin">
+                    <i class="fa fa-navicon"></i>
+            <span class="nav-link-text"> Inicio</span>
           </a>
-<<<<<<< HEAD
-        </li>      
-        @endif
-=======
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+                  <a class="nav-link" href="http://localhost:8000/admin/create">
+                    <i class="fa fa-user-plus"></i>
+            <span class="nav-link-text"> Añadir</span>
+          </a>
         </li> 
-        @endif     
->>>>>>> b476db645645ce1467dac0659354af92efdcd006
-        @if(Auth::check() && Auth::user()->role=='admin')
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Añadir</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-            <a class="nav-link" href="{{ route('admin.create')}}">
-              <i class="fa fa-user-plus"></i>
-              <span class="nav-link-text"> Añadir Empleado</span>
-            </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="{{ route('clinics.create')}}">
-          <i class="fa fa-fort-awesome"></i>
-            <span class="nav-link-text">Añadir Clinicas</span>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+          <a class="nav-link" href="http://localhost:8000/clinics">
+          <i class="fa fa-user-plus"></i>
+            <span class="nav-link-text"> Clinicas</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="{{ route('patient.create')}}">
-              <i class="fa fa-user-plus"></i>
-              <span class="nav-link-text"> Añadir paciente</span>
-            </a>
-          </li>
-          </ul>
-        </li>
-        @endif
-        @if(Auth::check() && Auth::user()->role=='user')
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Añadir</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-              <a class="nav-link" href="{{ route('patient.create')}}">
-                <i class="fa fa-user-plus"></i>
-                <span class="nav-link-text"> Añadir paciente</span>
-              </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-              <a class="nav-link" href="{{ route('appoiment.create')}}">
-                <i class="fa fa-user-plus"></i>
-                <span class="nav-link-text"> Dar citas</span>
-              </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="{{ route('clinics.create')}}">
-            <i class="fa fa-fort-awesome"></i>
-              <span class="nav-link-text">Añadir Clinicas</span>
-            </a>
-          </li>
-          
-          </ul>
-        </li>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="{{ route('employee.index')}}">
-              <i class="fa fa-user-plus"></i>
-              <span class="nav-link-text"> Mis pacientes</span>
-            </a>
-          </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="{{ route('activity.index')}}">
-            <i class="fa fa-child"></i>
-              <span class="nav-link-text"> Actividades </span>
-            </a>
-          </li>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="{{ route('clinics.index')}}">
-            <i class="fa fa-hospital-o"></i>
-              <span class="nav-link-text"> Clinicas</span>
-            </a>
-          </li>
-          
-          @endif
-        @if(Auth::check() && Auth::user()->role=='admin')
-       
-
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="{{ route('patient.index')}}">
-          <i class="fa fa-user"></i>
-            <span class="nav-link-text"> Pacientes</span>
+        
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+          <a class="nav-link" href="http://localhost:8000/activity">
+          <i class="fa fa-child"></i>
+            <span class="nav-link-text"> Actividades </span>
           </a>
         </li>
-       
-        @endif
-
-
-
-        @if(Auth::check() && Auth::user()->role=='user')
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="{{ route('appoiment.index')}}">
-          <i class="fa fa-navicon"></i>
-            <span class="nav-link-text"> Citas </span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="{{ route('patient.index')}}">
+        
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+          <a class="nav-link" href="http://localhost:8000/patient">
           <i class="fa fa-wheelchair"></i>
-            <span class="nav-link-text">Pacientes </span>
+            <span class="nav-link-text"> Pacientes </span>
           </a>
         </li>
-        @endif
-           
+                   
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -167,7 +81,9 @@
             <a class="dropdown-item" href="#">
               <strong>David Miller</strong>
               <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+              <div class="dropdown-message small">Hey there! This new 
+version of SB Admin is pretty awesome! These messages clip off when they
+ reach the end of the box so they don't overflow over to the sides!</div>
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">
@@ -179,7 +95,9 @@
             <a class="dropdown-item" href="#">
               <strong>John Doe</strong>
               <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+              <div class="dropdown-message small">I've sent the final 
+files over to you for review. When you're able to sign off of them let 
+me know and we can discuss distribution.</div>
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item small" href="#">View all messages</a>
@@ -231,7 +149,7 @@
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">
             <div class="input-group">
-              <input class="form-control" type="text" placeholder="Search for...">
+              <input class="form-control" placeholder="Search for..." type="text">
               <span class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fa fa-search"></i>
@@ -250,8 +168,53 @@
   <div class="content-wrapper">
     <div class="container-fluids">
     <!-- /.container-fluid-->
-    @yield('content')
-    <!-- /.content-wrapper-->
+    
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paciente</title>
+
+
+    
+<div class="col-lg-10">
+    <div class="card mb-10">
+      <div class="card-header"> <h2> Prof. Wendy Langworth </h2></div>
+      <div class="card-body"> 
+      
+       
+      <div class="col-lg-15">
+      <div class="card mb-10">
+        <div class="card-body">
+    
+          <img src="Paciente_files/nophoto.png" class="img-fluid" alt="..." align="left"> 
+
+        <div class="col-lg-8" align="center">
+        <div class="card mb-6" align="center">  
+        
+          <h3> Fecha de nacimiento: 07-06-2011 </h3>
+          <h3> sexo: female </h3>
+          <h3> Discapacidad: Traumatismo craneoencefálico </h3>
+          <h3> Telefono: +1-262-737-9435 </h3>
+          <h3> Direccion: 98173 Conn Shoal
+West Geraldshire, WA 95149-0052 </h3>
+          
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>      
+      </div>
+    </div>
+  </div>
+
+
+  
+    
+
+
+    
     </div>
     <footer class="sticky-footer">
       <div class="container">
@@ -277,13 +240,12 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="{{ route('logout') }}"
-                      onclick="event.preventDefault();
+            <a class="btn btn-primary" href="http://localhost:8000/logout" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Logout</a>
             
 
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      {{ csrf_field() }}
+                  <form id="logout-form" action="http://localhost:8000/logout" method="POST" style="display: none;">
+                      <input name="_token" value="OKjF9GOSuPMyskS9K6p7oVExz3InCIc9tMeEigyW" type="hidden">
                   </form>
           </div>
         </div>
@@ -291,16 +253,17 @@
     </div>
     </div>
    <!-- Bootstrap core JavaScript-->
-   <script src="{{ URL::asset('vendor/jquery/jquery.min.js') }}"></script>
-   <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-   <script src="{{ URL::asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-   <script src="{{ URL::asset('vendor/chart.js/Chart.min.js') }}"></script>
-   <script src="{{ URL::asset('vendor/datatables/jquery.dataTables.js') }}"></script>
-   <script src="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
-   <script src="{{ URL::asset('js/sb-admin.min.js') }}"></script>
-   <script src="{{ URL::asset('js/sb-admin-datatables.min.js') }}"></script>
-   <script src="{{ URL::asset('js/sb-admin-charts.min.js') }}"></script>
-   @yield('script')
-</body>
+   <script src="Paciente_files/jquery.js"></script>
+   <script src="Paciente_files/bootstrap.js"></script>
+   <script src="Paciente_files/jquery_002.js"></script>
+   <script src="Paciente_files/Chart.js"></script>
+   <script src="Paciente_files/jquery_003.js"></script>
+   <script src="Paciente_files/dataTables.js"></script>
+   <script src="Paciente_files/sb-admin.js"></script>
+   <script src="Paciente_files/sb-admin-datatables.js"></script>
+   <script src="Paciente_files/sb-admin-charts.js"></script>
 
-</html>
+
+
+</body></html>
+<!-- /.content-wrapper-->
