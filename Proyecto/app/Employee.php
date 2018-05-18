@@ -3,13 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EmployeeRequest;
 
 
-class employee extends Model
+class Employee extends Model
 {
     protected $table = 'employees';
 
@@ -49,6 +47,22 @@ class employee extends Model
             $employee->fill(['photo'=> asset($path)])->save();
         }
         $employee->user()->associate($user);
+        $employee->save();       
+    }
+
+    public function updateP(EmployeeRequest $request){
+        $employee = new Employee;
+        $employee->name = $request->name;
+        $employee->email = $request->email;
+        $employee->phone = $request->phone;
+        $employee->contract = $request->contract;
+        $employee->birthdate = $request->birthdate;
+        $employee->clinic_id = $request->clinic;
+        $employee->password = $request->password;
+        if($request->file('photo')){
+            $path = Storage::disk('public')->put('images',  $request->file('photo'));
+            $employee->fill(['photo'=> asset($path)])->save();
+        }
         $employee->save();       
     }
 
