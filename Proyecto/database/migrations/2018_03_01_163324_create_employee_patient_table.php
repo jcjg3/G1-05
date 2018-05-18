@@ -16,7 +16,7 @@ class CreateEmployeePatientTable extends Migration
          Schema::create('employee_patient', function (Blueprint $table) {
             $table->integer('employee_id');
             $table->integer('patient_id');
-            $table->date('fecha');
+            $table->string('fecha');
             $table->string('hora');
             $table->Integer('activity_id')->nullable();
             $table->primary(['patient_id', 'employee_id', 'fecha', 'hora']);

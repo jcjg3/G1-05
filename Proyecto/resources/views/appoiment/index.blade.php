@@ -1,38 +1,34 @@
 @extends('layout')
-
+@section('style')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
+@endsection
 @section('content')
-<div class="col-lg-12">
+<div class="col-lg-6">
 <div class="card mb-3">
   <div class="card-header"><i class="fa fa-table"></i> Lista de Usuarios</div>
   <div class="card-body">
     <div class="table-responsive">
     @include('admin.fragment.info')
-    
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-          <tr>
-              <th>ID Empleado</th>
-              <th>ID Paciente</th>
-              <th>Fecha</th>
-          </tr>
-          </thead>
+    <div class="row">
+        <div class="col-md-11 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Full Calendar Example</div>
 
-          <tbody>
-          @foreach($patients as $patient)
-          <tr>
-              <td>{{ $patient->pivot->employee_id }}</td>
-              <td>{{ $patient->pivot->patient_id }}</td>
-              <td>{{ $patient->pivot->fecha }}</td>
-              
-              </tr>
-          @endforeach
-          
-          </tbody>
-        </table>
-        </tbody>
-      </table>
+                <div class="panel-body">
+                    {!! $calendar->calendar() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
     </div>
   </div>
 </div>
 </div>
 @endsection 
+@section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+{!! $calendar->script() !!}
+@endsection

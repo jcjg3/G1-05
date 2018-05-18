@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('css/sb-admin.css') }}">
+  @yield('style')
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -30,6 +31,7 @@
             <span class="nav-link-text"> Inicio</span>
           </a>
         </li>      
+        @endif
         @if(Auth::check() && Auth::user()->role=='admin')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
@@ -290,6 +292,7 @@
    <script src="{{ URL::asset('js/sb-admin.min.js') }}"></script>
    <script src="{{ URL::asset('js/sb-admin-datatables.min.js') }}"></script>
    <script src="{{ URL::asset('js/sb-admin-charts.min.js') }}"></script>
+   @yield('script')
 </body>
 
 </html>
