@@ -30,7 +30,7 @@
             <span class="nav-link-text"> Empleados</span>
           </a>
         </li> 
-        @endif     
+        @endif    
         @if(Auth::check() && Auth::user()->role=='admin')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">

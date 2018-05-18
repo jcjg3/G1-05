@@ -12,5 +12,6 @@ class Record extends Model
     public function patients(){
         return $this->hasOne(Patient::class, 'record_patient');
         
+
     }
 }
