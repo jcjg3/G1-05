@@ -122,4 +122,17 @@ class EmployeeController extends Controller
         $patient->delete();
         return  back()->with('info', 'El paciente '.$name.' fue eliminado.');
     }
+
+    public function appoiment(){
+        /*$id = Auth::user()->id;
+        $empl = Employee::get();
+        foreach($empl as $emp){
+            if($emp->user_id == $id){
+                $patients = Employee::find($emp->id)->patients;
+                
+                return view($this->path.'.index', compact('patients'));
+            }
+        }*/
+    }
+
 }

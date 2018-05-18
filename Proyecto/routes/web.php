@@ -15,22 +15,32 @@
     return view('welcome');
 });*/
 Route::get('/', function(){
-    return view('auth.login');
+    return view('principal');
 });
+
+Route::get('/contacto', function(){
+    return view('publico.contacto');
+})->name('contacto');
+
+Route::get('/informacion', function(){
+    return view('publico.informacion');
+})->name('informacion');
 
 //Route::resource('employees', 'EmployeeController');
 //Route::resource('admin', 'AdminController');
 //Route::resource('activity','ActivityController');
 //Route::resource('patient','PatientController');
 
+Route::resource('clinics','ClinicController');
+Route::resource('activity','ActivityController');
+Route::resource('patient','PatientController');
 Auth::routes();
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin', 'AdminController');
-    Route::resource('clinics','ClinicController');
-    Route::resource('activity','ActivityController');
-    Route::resource('patient','PatientController');
 });
 Route::group(['middleware' => 'user'], function () {
+
+    Route::resource('appoiment', 'AppoimentController');
     Route::resource('employee', 'EmployeeController');
 });
 //Route::get('/home', 'HomeController@index')->name('home');
