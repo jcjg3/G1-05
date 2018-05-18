@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\PatientRequest;
+
+use App\Http\Requests\AppoimentRequest;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -22,8 +24,9 @@ class Patient extends Model
     public function activities(){
         return $this->belongsToMany(Activity::class, 'employee_patient')->withPivot('employee_id', 'fecha', 'hora');
     }
-    public function records(){
-        return $this->belongTo(Record::class,'record_patient');
+
+    public function search($id){
+        return $patient = Patient::find($id);
     }
     public function searchPatient($id){
 
@@ -49,6 +52,13 @@ class Patient extends Model
         }
         $patient->save();
 
+        return $patient;
+    }
+    public function storeAppoiment(AppoimentRequest $request, $id){
+       
+        $patient = $this->search($request->patient_id);
+
+        $patient->employees()->attach($id,['activity_id'=>$request->activity_ids,'fecha' => $request->fecha, 'hora' =>$request->hora]);
         return $patient;
     }
 

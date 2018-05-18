@@ -9,6 +9,7 @@ use App\Patient;
 
 class PatientController extends Controller
 {
+
     public function index() {
 
         $patient = new Patient();
@@ -18,12 +19,10 @@ class PatientController extends Controller
 
     public function show($id) {
         $patient =  Patient::find($id);
-        
         return view('patient.show',compact('patient'));
     }
 
     public function destroy($id) {
-
         $patients = Patient::find($id);
         $patients->delete();
         return back()->with('info','paciente eliminado');
@@ -40,6 +39,7 @@ class PatientController extends Controller
         return view('patient.create');
 
     }
+
     public function store(PatientRequest $request){
         $p = new Patient;
         $patient = $p->storePatient($request);
@@ -51,4 +51,5 @@ class PatientController extends Controller
         $patient = $p->updatePatient($request,$id);
         return redirect()->route('patient.index')->with('info', 'El paciente '.$request->name.' fue actualizado.');
     }
+
 }
