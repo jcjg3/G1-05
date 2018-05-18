@@ -68,7 +68,7 @@
               <h2 style= "color:white">Adacea Alicante</h2>
               <address style= "color:white">
                 <strong style= "color:white">Horario de atencion</strong>
-                <br> lunes-Viernes de 9:00 a 14:00 horas<br>
+                <br> Lunes-Viernes de 9:00 a 14:00<br>
                 <strong style= "color:white">Teléfonos de contacto</strong>
                 <br> 965133906 / 605283459<br>
                 <strong style= "color:white">Email de contacto</strong>
