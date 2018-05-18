@@ -15,21 +15,14 @@
     return view('welcome');
 });*/
 Route::get('/', function(){
-    return view('principal');
+    return view('auth.login');
 });
-
-Route::get('/contacto', function(){
-    return view('publico.contacto');
-})->name('contacto');
-
-Route::get('/informacion', function(){
-    return view('publico.informacion');
-})->name('informacion');
 
 //Route::resource('employees', 'EmployeeController');
 //Route::resource('admin', 'AdminController');
 //Route::resource('activity','ActivityController');
 //Route::resource('patient','PatientController');
+
 
 Route::resource('clinics','ClinicController');
 Route::resource('activity','ActivityController');
