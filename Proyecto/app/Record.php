@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Record extends Model
 {
-    public function patient() {
-        return $this->belongsTo('App\Patient');
-    }
+    protected $fillable = [
+        'diagnosis', 'enclosed',
+    ];
+    public function patients(){
+        return $this->hasOne(Patient::class, 'record_patient');
+        
 
-    public function list(){
-        $records = Record::all();
-        return $records;
     }
 }

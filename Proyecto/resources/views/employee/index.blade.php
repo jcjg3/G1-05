@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-lg-12">
 <div class="card mb-3">
-  <div class="card-header"><i class="fa fa-table"></i> Lista de Usuarios</div>
+  <div class="card-header"><i class="fa fa-table"></i> Lista de Pacientes</div>
   <div class="card-body">
     <div class="table-responsive">
     @include('admin.fragment.info')
@@ -39,7 +39,7 @@
               
               </form>
              </td>
-          </tr>
+           </tr>
           @endforeach
           
           </tbody>
