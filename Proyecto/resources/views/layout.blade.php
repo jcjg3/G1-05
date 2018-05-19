@@ -30,13 +30,8 @@
           <i class="fa fa-user"></i>
             <span class="nav-link-text"> Empleados</span>
           </a>
-<<<<<<< HEAD
         </li>      
         @endif
-=======
-        </li> 
-        @endif     
->>>>>>> b476db645645ce1467dac0659354af92efdcd006
         @if(Auth::check() && Auth::user()->role=='admin')
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">

@@ -41,7 +41,7 @@ Route::group(['middleware' => 'admin'], function () {
 });
 Route::group(['middleware' => 'user'], function () {
 
-    //Route::resource('appoiment', 'AppoimentController');
+    Route::resource('appoiment', 'AppoimentController');
     Route::resource('employee', 'EmployeeController');
     Route::get('appoiment', 'AppoimentController@index')->name('appoiment.index');
 });
