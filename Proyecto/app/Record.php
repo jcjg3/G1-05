@@ -10,8 +10,6 @@ class Record extends Model
         'diagnosis', 'enclosed',
     ];
     public function patients(){
-        return $this->hasOne(Patient::class, 'record_patient');
-        
-
+        return $this->belongsTo('App\Patient');
     }
 }

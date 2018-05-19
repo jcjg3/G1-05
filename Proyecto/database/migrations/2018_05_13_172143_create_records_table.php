@@ -17,6 +17,8 @@ class CreateRecordsTable extends Migration
             $table->increments('id');
             $table->string('diagnosis');
             $table->String('enclosed');
+            $table->integer('patient_id');
+            $table->foreign('patient_id')->references('id')->on('patients');
             $table->timestamps();
         });
     }
