@@ -85,6 +85,6 @@ class Patient extends Model
     }
 
     public function records() {
-        return $this->hasOne('App\Record');
+        return $this->hasOne('App\Expedient');
     }
 }

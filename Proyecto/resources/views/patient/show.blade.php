@@ -24,6 +24,7 @@
                     @include('patient.fragment.aside')
                     {!! Form::close() !!}
                     <a type="button" class="btn btn-success btn-sm" href="{{ route('patient.edit', $patient->id)}}" role="button">Editar</a>
+                    <a type="button" class="btn btn-success btn-sm" href="{{ route('expedient.show', $patient->id)}}" role="button">expediente</a>
                 </div>
             </div>
         </div>

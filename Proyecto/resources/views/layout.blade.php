@@ -107,6 +107,7 @@
           </li>
           
           @endif
+          
         @if(Auth::check() && Auth::user()->role=='admin')
        
 
@@ -263,14 +264,14 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de abandonar la página?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">¿Ya te vas?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
           <div class="modal-body">Selecciona "Salir" para cerrar sesión.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancela</button>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
             <a class="btn btn-primary" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Salir</a>

@@ -4,12 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Record extends Model
+class Expedient extends Model
 {
     protected $fillable = [
-        'diagnosis', 'enclosed',
+        'diagnosis', 'enclosed','patient_id'
     ];
     public function patients(){
         return $this->belongsTo('App\Patient');
     }
+
+
 }
