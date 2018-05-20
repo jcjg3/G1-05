@@ -64,7 +64,7 @@
                   </small>
               </div>
     	
-            <div class="col-sm-4" syle= "color:white">
+            <div class="col-sm-4" style= "color:white">
               <h2 style= "color:white">Adacea Alicante</h2>
               <address style= "color:white">
                 <strong style= "color:white">Horario de atencion</strong>

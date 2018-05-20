@@ -16,7 +16,6 @@ class CreateExpedientsTable extends Migration
         Schema::create('expedients', function (Blueprint $table) {
             $table->increments('id');
             $table->string('diagnosis');
-            $table->String('enclosed');
             $table->integer('patient_id');
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->timestamps();
@@ -30,6 +29,6 @@ class CreateExpedientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('records');
+        Schema::dropIfExists('expedients');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Expedient;
 use App\Patient;
 
+
 use Illuminate\Http\Request;
 
 class ExpedientController extends Controller
@@ -11,9 +12,15 @@ class ExpedientController extends Controller
     //
     public function show($id)
     {
-        $patient = new Patient;
-        $found = $patient->searchPatient($id);
-        return view('expedient.show', compact('found'));
+        $exp = new Expedient;
+        $patient = $exp->searchExpedient($id);
+        return view('expedient.show', compact('patient'));
+     }
+     //NO FUNCIONA NI PARA ATRÁS 
+    public function edit ($id){
+        $exp = new Expedient;
+        $expedient = $exp->searchExpedient($id);
+        return view('expedient.edit',compact('expedient'));
     }
 
 }
