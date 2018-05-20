@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+<div class="row">
 <div class="col-lg-12">
 <div class="card mb-3">
   <div class="card-header"><i class="fa fa-table"></i> Lista de Pacientes</div>
@@ -48,6 +49,7 @@
       </table>
     </div>
   </div>
+</div>
 </div>
 </div>
 @endsection
