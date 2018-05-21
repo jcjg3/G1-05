@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ExpedientRequest;
 
 class Expedient extends Model
 {
@@ -15,9 +16,18 @@ class Expedient extends Model
     }
 
     public function searchExpedient($id){
-        $patient = new Patient;
-        $pat = $patient->searchPatient($id);
-        return $pat;
+        $exp = Expedient::find($id);
+        return $exp;
+    }
+
+    public function updateExpedient(ExpedientRequest $request, $id){
+        
+        $expedient = $this->searchExpedient($id);
+        $expedient->diagnosis = $request->diagnosis;
+        $expedient->save();
+
+        return $expedient;
+
     }
 
 }

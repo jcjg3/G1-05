@@ -25,7 +25,7 @@
                     @include('patient.fragment.error')
 
                     {{ Form::model($patient, ['route' => ['patient.update', $patient->id], 'method' => 'PUT', 'files' => true])}}
-                    @include('patient.fragment.form')
+                        @include('patient.fragment.form')
                     {!! Form::close() !!}
                 </div>
             </div>

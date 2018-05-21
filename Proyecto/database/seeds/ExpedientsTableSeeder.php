@@ -12,13 +12,13 @@ class ExpedientsTableSeeder extends Seeder
     public function run()
     {
         DB::table('expedients')->delete();
-
-        $patient = DB::table('patients')->where('id', 1)->value('id');
-        DB::table('expedients')->insert([
-            ('diagnosis') => 'a fecha de 1343537',
-            ('patient_id') => $patient,
-            
-        ]);
+        $i = 0;
+        foreach(range(1,20) as $index){
+            $i =($i+1);
+            DB::table('expedients')->insert([
+                ('diagnosis') => 'a fecha de 1343537',
+                ('patient_id')=>$i,
+            ]);
+        }
     }
-
 }

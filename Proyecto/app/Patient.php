@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\PatientRequest;
-
+use App\Expedient;
 use App\Http\Requests\AppoimentRequest;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\ServiceProvider;
 
 
 class Patient extends Model
@@ -39,19 +40,31 @@ class Patient extends Model
     }
     
     public function storePatient(PatientRequest $request){
-        $patient = new Patient;
-        $patient->name = $request->name;
-        $patient->disability = $request->disability;
-        $patient->phone = $request->phone;
-        $patient->address = $request->address;
-        $patient->birthdate = $request->birthdate;
-        $patient->sexo = $request->sexo;
-        if($request->file('photo')){
-            $path = Storage::disk('public')->put('images',  $request->file('photo'));
-            $patient->fill(['photo'=> asset($path)])->save();
+        $errorM = null;
+        DB::beginTransaction();
+        try{
+            $patient = new Patient;
+            $patient->name = $request->name;
+            $patient->disability = $request->disability;
+            $patient->phone = $request->phone;
+            $patient->address = $request->address;
+            $patient->birthdate = $request->birthdate;
+            $patient->sexo = $request->sexo;
+            if($request->file('photo')){
+                $path = Storage::disk('public')->put('images',  $request->file('photo'));
+                $patient->fill(['photo'=> asset($path)])->save();
+            }
+            $record = new Expedient();
+            $record->diagnosis='';
+            $patient->records()->save($record);
+            $patient->save();
+            DB::commit();
         }
-        $patient->save();
-
+        catch(\Exception $e){
+                $error = $e->getMessage();
+                DB::rollback();
+                return $error;
+        }
         return $patient;
     }
     public function storeAppoiment(AppoimentRequest $request, $id){
