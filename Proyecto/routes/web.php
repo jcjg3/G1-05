@@ -35,6 +35,7 @@ Route::resource('clinics','ClinicController');
 Route::resource('records','RecordController');
 Route::resource('activity','ActivityController');
 Route::resource('patient','PatientController');
+
 Route::resource('expedient','ExpedientController');
 
 Auth::routes();
@@ -45,6 +46,7 @@ Route::group(['middleware' => 'user'], function () {
 
     Route::resource('appoiment', 'AppoimentController');
     Route::resource('employee', 'EmployeeController');
+    Route::get('appoiment', 'AppoimentController@index')->name('appoiment.index');
 });
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::resource('admin', 'AdminController');

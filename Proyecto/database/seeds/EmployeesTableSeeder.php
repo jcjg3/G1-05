@@ -44,10 +44,10 @@ class EmployeesTableSeeder extends Seeder
 
         ]);
         
-        $employee = Employee::find(1);
+        /*$employee = Employee::find(1);
         $employee->user()->associate(2);
         $employee = Employee::find(1);
-        $employee->user()->associate(3);
+        $employee->user()->associate(3);*/
         //identificador 11
 
         /*DB::table('employees')->insert([

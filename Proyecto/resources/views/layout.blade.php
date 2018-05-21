@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('css/sb-admin.css') }}">
+  @yield('style')
 </head>
 
 
@@ -296,6 +297,7 @@
    <script src="{{ URL::asset('js/sb-admin.min.js') }}"></script>
    <script src="{{ URL::asset('js/sb-admin-datatables.min.js') }}"></script>
    <script src="{{ URL::asset('js/sb-admin-charts.min.js') }}"></script>
+   @yield('script')
 </body>
 
 </html>
