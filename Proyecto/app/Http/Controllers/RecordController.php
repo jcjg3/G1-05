@@ -84,6 +84,6 @@ class RecordController extends Controller
     {
         $record = Record::find($id);
         $record->delete();
-        return back()->with('info','grabación eliminads');
+        return back()->with('info','grabacion eliminads');
     }
 }

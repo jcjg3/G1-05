@@ -1,14 +1,11 @@
 
-
-  
 <div class="form-group">
 <ins>{!! Form::Label('name', 'Nombre', ['class' => 'col-sm-2 col-form-label','style' =>'text-decoration: underline;font-weight: 900; font-size:20px;']) !!}</ins>
     <div class="col-sm-10">
     {!! Form::text('name', null, ['class' => 'form-control-plaintext']) !!}
     </div>
 </div>
-
-  <div class="form-group">
+<div class="form-group">
     {!! Form::Label('disability', 'Minusvalía', ['class' => 'col-sm-6 col-form-label','style' =>'text-decoration: underline;font-weight: 900; font-size:20px;']) !!}
     <div class="col-sm-10">
     {!! Form::text('disability', null, ['class' => 'form-control-plaintext']) !!}
@@ -32,11 +29,14 @@
     <div class="col-sm-10">
     {!! Form::text('birthdate', null, ['class' => 'form-control-plaintext']) !!}
     </div>
+</div>
 <div class="form-group">
     {!! Form::Label('sexo', 'Sexo', ['class' => 'col-sm-6 col-form-label','style' =>'text-decoration: underline;font-weight: 900; font-size:20px;']) !!}
     <div class="col-sm-10">
     {!! Form::text('sexo', null, ['class' => 'form-control-plaintext']) !!}
 </div>
-</div>
+
+
+
   
   
