@@ -50,8 +50,8 @@ class Employee extends Model
         $employee->save();       
     }
 
-    public function updateP(EmployeeRequest $request){
-        $employee = new Employee;
+    public function updateP(EmployeeRequest $request, $id){
+        $employee = Employee::find($id);
         $employee->name = $request->name;
         $employee->email = $request->email;
         $employee->phone = $request->phone;
