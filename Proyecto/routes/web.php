@@ -32,8 +32,11 @@ Route::get('/informacion', function(){
 //Route::resource('patient','PatientController');
 
 Route::resource('clinics','ClinicController');
+Route::resource('records','RecordController');
 Route::resource('activity','ActivityController');
 Route::resource('patient','PatientController');
+
+Route::resource('expedient','ExpedientController');
 
 Auth::routes();
 Route::group(['middleware' => 'admin'], function () {
