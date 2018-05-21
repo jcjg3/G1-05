@@ -105,12 +105,12 @@
               <span class="nav-link-text"> Clinicas</span>
             </a>
           </li>
-                <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="{ { route('record.index')}}">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                    <a class="nav-link" href="{{ route('records.index')}}">
                         <i class="fa fa-video-camera"></i>
                         <span class="nav-link-text"> Grabaciones</span>
                     </a>
-                </li> -->
+                </li>
           
           @endif
         @if(Auth::check() && Auth::user()->role=='admin')
