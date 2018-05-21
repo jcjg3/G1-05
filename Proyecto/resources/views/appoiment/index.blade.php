@@ -9,13 +9,13 @@
 
 <div class="col-lg-8">
     <div class="card mb-3">
-    <div class="card-header"><i class="fa fa-table"></i> Lista de Usuarios</div>
+    <div class="card-header"><i class="fa fa-table"></i>Calendario</div>
     <div class="card-body">
         <div class="table-responsive">
             <div class="row">
                 <div class="col-md-11 col-md-offset-2">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Full Calendar Example</div>
+                        <div class="panel-heading"></div>
 
                         <div class="panel-body">
                             {!! $calendar->calendar() !!}
@@ -29,14 +29,14 @@
 </div>
 <div class="col-lg-4">
 <div class="card mb-3">
-  <div class="card-header"><i class="fa fa-table"></i> Lista de Usuarios</div>
+  <div class="card-header"><i class="fa fa-table"></i> Lista de Citas</div>
   <div class="card-body">
     <div class="table-responsive">
     
     <div class="row">
         <div class="col-md-11 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Full Calendar Example</div>
+                <div class="panel-heading"></div>
 
                 <div class="panel-body">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
