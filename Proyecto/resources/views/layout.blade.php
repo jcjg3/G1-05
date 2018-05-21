@@ -80,12 +80,6 @@
                 <span class="nav-link-text"> Dar citas</span>
               </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-            <a class="nav-link" href="{{ route('clinics.create')}}">
-            <i class="fa fa-fort-awesome"></i>
-              <span class="nav-link-text">Añadir Clinicas</span>
-            </a>
-          </li>
           
           </ul>
         </li>

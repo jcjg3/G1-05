@@ -6,8 +6,8 @@
 </div>
 
 <div class="form-group">
-    {!! Form::Label('birthdate', 'Año de nacimiento') !!}
-    {!! Form::text('birthdate', null, ['class' => 'form-control']) !!}
+    {!! Form::Label('birthdate', 'Fecha de nacimiento') !!}
+    {!! Form::date('birthdate', null, ['class' => 'form-control']) !!}  
 </div>
 
 <div class="form-group">

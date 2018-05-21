@@ -15,7 +15,6 @@
               <th>Imagen</th>
               <th>ID</th>
               <th>Nombre</th>
-              <th>Correo</th>
               
               <th></th>
               <th></th>
@@ -29,9 +28,8 @@
               <td style="text-align:center;"> <img src="{{ $patient->photo }}" style="width:55px;height:55px" class=""> </td>
               <td>{{ $patient->id }}</td>
               <td>{{ $patient->name }}</td>
-              <td>{{ $patient->email }}</td>
-              <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('employee.show', $patient->id)}}" role="button">Ver</a></td>
-              <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('employee.edit', $patient->id)}}" role="button">Editar</a></td>
+              <td class="text-center">  <a type="button" class="btn btn-success btn-sm" href="{{ route('patient.show', $patient->id)}}" role="button">Ver</a></td>
+              <td class="text-center"> <a type="button" class="btn btn-success btn-sm" href="{{ route('patient.edit', $patient->id)}}" role="button">Editar</a></td>
               <td class="text-center">
               <form action="{{ route('employee.destroy', $patient->id)}}" method="POST">
                 {{ csrf_field() }}

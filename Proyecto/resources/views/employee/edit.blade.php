@@ -22,10 +22,10 @@
       <div class="card-header"><i class="fa fa-bar-chart"></i> Información</div>
         <div class="card-body">
 
-        @include('employee.fragment.error')
+        @include('patient.fragment.error')
 
-        {{ Form::model($employee, ['route' => ['employee.update', $employee->id], 'method' => 'PUT', 'files' => true])}}
-             @include('employee.fragment.form')
+        {{ Form::model($patient, ['route' => ['patient.update', $patient->id], 'method' => 'PUT', 'files' => true])}}
+             @include('patient.fragment.form')
         {!! Form::close() !!}
         </div>
         </div>
