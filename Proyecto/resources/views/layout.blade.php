@@ -62,6 +62,8 @@
         </li>
         @endif
         @if(Auth::check() && Auth::user()->role=='user')
+        
+        <center><img src="{{ Auth::user()->photo }}" style="width:140px; height:140px; position:center;  border-radius:80px"></center>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-sitemap"></i>

@@ -17,6 +17,7 @@ class UserTableSeeder extends Seeder
         'email' => 'admin@admin.com',
         'password' => bcrypt('admin'),
         'is_subscriber' => '1',
+        'photo' => '../images/nophoto.png',
         'role' => 'admin'
         ]);
 
@@ -25,6 +26,7 @@ class UserTableSeeder extends Seeder
             'email' => 'jj@gmail.com',
             'password' => bcrypt('user'),
             'is_subscriber' => '1',
+            'photo' => '../images/nophoto.png',
             'role' => 'user'
         ]);
         DB::table('users')->insert([
@@ -32,6 +34,7 @@ class UserTableSeeder extends Seeder
             'email' => 'cisco@gmail.com',
             'password' => bcrypt('user'),
             'is_subscriber' => '1',
+            'photo' => '../images/nophoto.png',
             'role' => 'user'
         ]);
     }

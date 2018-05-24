@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EmployeeRequest;
-
+use App\User;
 
 class Employee extends Model
 {
@@ -52,6 +52,7 @@ class Employee extends Model
 
     public function updateP(EmployeeRequest $request, $id){
         $employee = Employee::find($id);
+        $user = User::find($id+1);
         $employee->name = $request->name;
         $employee->email = $request->email;
         $employee->phone = $request->phone;
@@ -62,8 +63,11 @@ class Employee extends Model
         if($request->file('photo')){
             $path = Storage::disk('public')->put('images',  $request->file('photo'));
             $employee->fill(['photo'=> asset($path)])->save();
+            $user->fill(['photo'=> asset($path)])->save();
+            $user->save();  
         }
-        $employee->save();       
+        $employee->save();  
+           
     }
 
     public function search($id){

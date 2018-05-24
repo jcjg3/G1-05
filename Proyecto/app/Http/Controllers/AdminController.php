@@ -55,6 +55,10 @@ class AdminController extends Controller
         $user->password = bcrypt($request->password);
         $user->is_subscriber = '1';
         $user->role = 'user';
+        if($request->file('photo')){
+            $path = Storage::disk('public')->put('images',  $request->file('photo'));
+            $user->photo = $path;  
+        }
         $user->save();
         $employee->store($request, $user);
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue guardado.');
@@ -97,6 +101,12 @@ class AdminController extends Controller
         $employe = new Employee;
         $employee = $employe->search($id);
         $employee->updateP($request, $id);
+        $user = User::find($id+1);
+        if($request->file('photo')){
+            $path = Storage::disk('public')->put('images',  $request->file('photo'));
+            $user->photo = $path;  
+            $user->save();  
+        }
         return redirect()->route('admin.index')->with('info', 'El usuario '.$request->name.' fue actualizado.');
     }
 
