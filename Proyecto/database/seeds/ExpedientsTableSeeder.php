@@ -16,7 +16,6 @@ class ExpedientsTableSeeder extends Seeder
         foreach(range(1,20) as $index){
             $i =($i+1);
             DB::table('expedients')->insert([
-                ('diagnosis') => 'a fecha de 1343537',
                 ('patient_id')=>$i,
             ]);
         }

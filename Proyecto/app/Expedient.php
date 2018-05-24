@@ -23,8 +23,6 @@ class Expedient extends Model
     public function updateExpedient(ExpedientRequest $request, $id){
         
         $expedient = $this->searchExpedient($id);
-        $expedient->diagnosis = $request->diagnosis;
-        $expedient->save();
 
         return $expedient;
 

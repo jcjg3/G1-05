@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 use App\Expedient;
 use App\Patient;
+use App\Diagnosis;
 use App\Http\Requests\ExpedientRequest;
-
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ExpedientController extends Controller
@@ -15,7 +16,8 @@ class ExpedientController extends Controller
     {
         $exp = new Expedient;
         $expedient = $exp->searchExpedient($id);
-        return view('expedient.show', compact('expedient'));
+        $diagnosis = DB::table('diagnoses')->where('expedients_id',$id)->get();
+        return view('expedient.show', compact('expedient'), compact('diagnosis'));
      }
      
     public function edit ($id){
@@ -30,7 +32,15 @@ class ExpedientController extends Controller
     }
     public function update(ExpedientRequest $request , $id){
         $exp = new Expedient;
-        $expedient = $exp->updateExpedient($request,$id);
-        return redirect()->route('expedient.show',compact('expedient'));
+        $id_user = Auth::user()->id;
+        $id_user = $id_user + 1;
+        $diagnosis = new Diagnosis;
+        $diagnosis->employee_id = $id_user;
+        $diagnosis->expedients_id = $id;
+        $diagnosis->comentario = $request->diagnosis;
+        $diagnosis->save();
+        $diagnosis = DB::table('diagnoses')->where('expedients_id',$id)->get();
+        $expedient = $exp->searchExpedient($id);
+        return view('expedient.show', compact('expedient'), compact('diagnosis'));
     }
 }

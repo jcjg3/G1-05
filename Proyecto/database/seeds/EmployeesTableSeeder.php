@@ -25,7 +25,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => 'jj@gmail.com',
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
-            'photo' => '',
+            'photo' => '../images/nophoto.png',
             'user_id' => 2,
             'password' => bcrypt('user'),
             
@@ -38,7 +38,7 @@ class EmployeesTableSeeder extends Seeder
             'email' => 'cisco@gmail.com',
             'contract' => $faker->numberBetween(90000,10000),
             'phone' => $faker->phoneNumber,
-            'photo' => '',
+            'photo' => '../images/nophoto.png',
             'user_id' => 3,
             'password' => bcrypt('user'),
 

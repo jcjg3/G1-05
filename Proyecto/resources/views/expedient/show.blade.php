@@ -14,12 +14,14 @@
     <div class="col-lg-11">
         <div class="card mb-1">
             <div class="card-header"><i class="fa fa-address-book-o"></i>Expediente
-            <a type="button" class="btn btn-success btn-sm" href="{{ route('expedient.edit', $expedient->id)}}" role="button" style = "float:right">Editar</a> </div>
+            <a type="button" class="btn btn-success btn-sm" href="{{ route('expedient.edit', $expedient->id)}}" role="button" style = "float:right">Añadir</a> </div>
                 <div class="card-body">
-                    {{ Form::model($expedient, ['route' => ['expedient.update', $expedient->id], 'method' => 'PUT' ])}}
-                        @include('expedient.fragment.mostrar')
-                    {!! Form::close() !!}
-                    
+                    @foreach($diagnosis as $diag)
+                        <p>{{ $diag->comentario }}</p>
+
+
+
+                    @endforeach
                 </div>
             </div>
         </div>

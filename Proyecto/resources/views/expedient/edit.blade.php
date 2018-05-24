@@ -30,8 +30,8 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fa fa-bar-chart"></i> Gráfico</div>
-            <div class="card-body">
-                <canvas id="myBarChart" width="100" height="50"></canvas>
+              <div class="card-body">
+                     <img src="../images/canvas.png"  width="900" height="315"></img>         
             </div>
             
           </div>

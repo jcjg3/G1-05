@@ -29,7 +29,8 @@ class EmployeesPatientsTableSeeder extends Seeder
             'hora' => $faker->time($format = 'H-i-m', $max = 'now'),
             'patient_id' => $patient,
             'employee_id' => $medico,
-            'activity_id' => $activity 
+            'activity_id' => $activity,
+             
         ]);
         /*
         foreach($patients as $patient){

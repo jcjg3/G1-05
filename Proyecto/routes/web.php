@@ -26,27 +26,26 @@ Route::get('/informacion', function(){
     return view('publico.informacion');
 })->name('informacion');
 
-//Route::resource('employees', 'EmployeeController');
-//Route::resource('admin', 'AdminController');
-//Route::resource('activity','ActivityController');
-//Route::resource('patient','PatientController');
-
-Route::resource('clinics','ClinicController');
-Route::resource('records','RecordController');
-Route::resource('activity','ActivityController');
-Route::resource('patient','PatientController');
-
-Route::resource('expedient','ExpedientController');
 
 Auth::routes();
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin', 'AdminController');
+    Route::resource('clinics','ClinicController');
+    Route::resource('records','RecordController');
+    Route::resource('activity','ActivityController');
+    Route::resource('patient','PatientController');
+    Route::resource('expedient','ExpedientController');
 });
 Route::group(['middleware' => 'user'], function () {
 
     Route::resource('appoiment', 'AppoimentController');
     Route::resource('employee', 'EmployeeController');
-    Route::get('appoiment', 'AppoimentController@index')->name('appoiment.index');
+    Route::get('appoiment', 'AppoimentController@index')->name('appoiment.index');    
+    Route::resource('clinics','ClinicController');
+    Route::resource('records','RecordController');
+    Route::resource('activity','ActivityController');
+    Route::resource('patient','PatientController');
+    Route::resource('expedient','ExpedientController');
 });
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::resource('admin', 'AdminController');
