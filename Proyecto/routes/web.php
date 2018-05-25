@@ -27,24 +27,20 @@ Route::get('/informacion', function(){
 })->name('informacion');
 
 
+
+Route::resource('clinics','ClinicController');
+Route::resource('records','RecordController');
+Route::resource('activity','ActivityController');
+Route::resource('patient','PatientController');
 Auth::routes();
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin', 'AdminController');
-    Route::resource('clinics','ClinicController');
-    Route::resource('records','RecordController');
-    Route::resource('activity','ActivityController');
-    Route::resource('patient','PatientController');
-    Route::resource('expedient','ExpedientController');
 });
 Route::group(['middleware' => 'user'], function () {
 
     Route::resource('appoiment', 'AppoimentController');
     Route::resource('employee', 'EmployeeController');
     Route::get('appoiment', 'AppoimentController@index')->name('appoiment.index');    
-    Route::resource('clinics','ClinicController');
-    Route::resource('records','RecordController');
-    Route::resource('activity','ActivityController');
-    Route::resource('patient','PatientController');
     Route::resource('expedient','ExpedientController');
 });
 //Route::get('/home', 'HomeController@index')->name('home');

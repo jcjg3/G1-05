@@ -12,7 +12,7 @@
 
 <div class="form-group">
     {!! Form::Label('birthdate', 'Fecha de nacimiento') !!}
-    {!! Form::text('birthdate', null, ['class' => 'form-control']) !!}
+    {!! Form::date('birthdate', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group">
@@ -24,9 +24,18 @@
     {!! Form::Label('phone', 'Telefono') !!}
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
 </div>
+
+
+
 <div class="form-group">
-    {!! Form::Label('clinic', 'Clinica') !!}
-    {!! Form::text('clinic', null, ['class' => 'form-control']) !!}
+{!! Form::Label('clinic_id', 'Clinica') !!}
+    <div class="form-group">
+        <select name="clinic_id" id="inputActivity_id" class="form-control">
+            @foreach($clinics as $clinic)
+                <option value="{{ $clinic['id']}}">{{ $clinic['name']}}</option>
+            @endforeach
+        </select>
+    </div>
 </div>
 <div class="form-group">
     {!! Form::Label('password', 'Clave') !!}

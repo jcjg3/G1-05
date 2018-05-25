@@ -14,6 +14,7 @@ class CreateEmployeePatientTable extends Migration
      public function up()
      {
          Schema::create('employee_patient', function (Blueprint $table) {
+
             $table->integer('employee_id');
             $table->integer('patient_id');
             $table->string('fecha');

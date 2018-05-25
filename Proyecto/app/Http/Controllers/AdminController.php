@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Employee;
 use App\User;
+use App\Clinic;
 use App\Http\Requests\EmployeeRequest;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -38,7 +39,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view($this->path.'.create');
+        $clinics = Clinic::all();
+        return view($this->path.'.create',compact('clinics'));
     }
 
     /**
@@ -86,7 +88,8 @@ class AdminController extends Controller
     {
         $employe = new Employee;
         $employee = $employe->search($id);
-        return view($this->path.'.edit', compact('employee'));
+        $clinics = Clinic::all();
+        return view($this->path.'.edit', compact('employee'),compact('clinics'));
     }
 
     /**

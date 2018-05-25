@@ -25,8 +25,8 @@ class EmployeesPatientsTableSeeder extends Seeder
         $activity = DB::table('activities')->where('id', 2)->value('id');
         $patient = DB::table('patients')->where('id', 2)->value('id');
         DB::table('employee_patient')->insert([
-            'fecha' => '10-05-2018',//$faker->date($format = 'd-m-Y', $max = '10-05-2018'),
-            'hora' => $faker->time($format = 'H-i-m', $max = 'now'),
+            'fecha' => '2018-05-15',//$faker->date($format = 'd-m-Y', $max = '10-05-2018'),
+            'hora' => '14.00',
             'patient_id' => $patient,
             'employee_id' => $medico,
             'activity_id' => $activity,

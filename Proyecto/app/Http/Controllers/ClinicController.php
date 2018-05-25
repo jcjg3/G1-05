@@ -54,7 +54,6 @@ class ClinicController extends Controller
 
     public function store(ClinicRequest $request){
         $clinic = new Clinic;
-        
         $clinic->name = $request->name;
         $clinic->direccion = $request->direccion;
         $clinic->localidad = $request->localidad;

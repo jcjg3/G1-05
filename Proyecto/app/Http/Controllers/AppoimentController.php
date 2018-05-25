@@ -10,6 +10,7 @@ use App\Patient;
 use App\Activity;
 use Illuminate\Support\Facades\Auth;
 use Calendar;
+use Illuminate\Support\Facades\DB;
 
 class AppoimentController extends Controller
 {
@@ -83,5 +84,11 @@ class AppoimentController extends Controller
         $idx = $id - 1;
         $patient = $p->storeAppoiment($request, $idx);
         return redirect()->route('employee.index')->with('info', 'La cita con el paciente cuya id es'.$request->id.' fue guardada.');
+    }
+    public function destroy($id)
+    {
+        $sqldelete = "delete from employee_patient where patient_id=$id";
+        DB::select($sqldelete);
+        return  back()->with('info', 'La cita fue eliminada con exito.');
     }
 }
