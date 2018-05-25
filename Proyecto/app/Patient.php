@@ -55,7 +55,6 @@ class Patient extends Model
                 $patient->fill(['photo'=> asset($path)])->save();
             }
             $record = new Expedient();
-            $record->diagnosis='';
             $patient->records()->save($record);
             $patient->save();
             DB::commit();
